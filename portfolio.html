@@ -1,10 +1,11 @@
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio — Matías Aguetti</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="site-header">
@@ -23,24 +24,37 @@
     <p class="section-sub" data-i18n="pf-sub">Proyectos seleccionados con descripción, tecnologías y resultados.</p>
 
     <section id="projects" class="projects-grid">
-      <!-- Repeat this article for each project. Replace content and thumbnails. -->
+
       <article class="project-card animate">
-        <img src="/assets/portfolio-01.jpg" alt="Proyecto A" loading="lazy">
+        <img src="assets/nomlogo.jpg" alt="Nomlogo" loading="lazy">
         <div class="project-body">
-          <h3>Proyecto A — Tienda de nicho</h3>
-          <p><strong>Servicios:</strong> Diseño, desarrollo, SEO técnico.</p>
-          <p><strong>Tecnologías:</strong> HTML/CSS, JS, WordPress (Woocommerce).</p>
-          <p><strong>Resultados:</strong> +85% en velocidad (Lighthouse), aumento del 40% en tráfico orgánico en 6 meses.</p>
+          <h3>Nomlogo — Estrategia de contenidos y SEO</h3>
+          <p><strong>Rol:</strong> Miembro del equipo de contenidos y SEO strategist.</p>
+          <p><strong>Descripción:</strong> Planificación e implementación de estrategias de contenidos para el blog, focalizadas en keywords relacionadas con mantenimiento web, diseño y desarrollo en WordPress.</p>
+          <p><strong>Tecnologías / herramientas:</strong> WordPress, Google Search Console, Google Analytics, Ahrefs (o similar).</p>
+          <p><strong>Resultados:</strong> Posicionamiento del sitio en primeros puestos para keywords estratégicas (métricas disponibles bajo petición).</p>
           <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
         </div>
       </article>
 
       <article class="project-card animate">
-        <img src="/assets/portfolio-02.jpg" alt="Proyecto B" loading="lazy">
+        <img src="assets/clubdeinversores.jpg" alt="Club de Inversores" loading="lazy">
         <div class="project-body">
-          <h3>Proyecto B — Blog corporativo</h3>
-          <p><strong>Servicios:</strong> Estrategia de contenidos y redacción SEO.</p>
-          <p><strong>Resultados:</strong> Reducción de bounce rate y crecimiento sostenido de visitas.</p>
+          <h3>Club de Inversores — Plataforma de membresías</h3>
+          <p><strong>Descripción:</strong> Desarrollo con Elementor; integración con HubSpot y s2Member para venta de membresías orientadas a cursos sobre finanzas e inversiones.</p>
+          <p><strong>Tecnologías / herramientas:</strong> WordPress, Elementor, HubSpot, s2Member, APIs para pasarelas y analytics.</p>
+          <p><strong>Resultados:</strong> Incremento de clics orgánicos de ~20 por día a ~220 por día en 6 meses tras estrategia de contenidos y SEO.</p>
+          <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
+        </div>
+      </article>
+
+      <article class="project-card animate">
+        <img src="assets/villas-zamna.jpg" alt="Villas Zamná" loading="lazy">
+        <div class="project-body">
+          <h3>Villas Zamná — Motor de reservas y multilenguaje</h3>
+          <p><strong>Descripción:</strong> Sitio para reservas de villas en Cozumel, desarrollado con Divi. Integración con Hostaway vía API y motor de reservas inyectado mediante código; multilenguaje con WPML y traducción manual.</p>
+          <p><strong>Tecnologías / herramientas:</strong> Divi (child theme), WPML, Hostaway API, JS personalizado para popups y motor de reservas.</p>
+          <p><strong>Resultados:</strong> +60% en interacciones orgánicas en 6 meses y +40% en conversiones directas a reservas en Hostaway.</p>
           <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
         </div>
       </article>
@@ -64,7 +78,6 @@
     </div>
   </footer>
 
-  <script src="/assets/script.js"></script>
+  <script src="assets/script.js"></script>
 </body>
 </html>
-```
