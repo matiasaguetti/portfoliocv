@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matías Aguetti — Diseño web, SEO & Contenido</title>
+  <meta name="description" content="CV y portfolio de Matías Aguetti — servicios de diseño web, posicionamiento SEO y creación de contenido." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Basic favicons (replace with your files) -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="index.html">Matías <span class="accent">Aguetti</span></a>
+      <nav class="main-nav">
+        <a href="#presentacion" data-i18n="nav-home">Inicio</a>
+        <a href="#servicios" data-i18n="nav-services">Servicios</a>
+        <a href="#portfolio" data-i18n="nav-portfolio">Portfolio</a>
+        <a href="portfolio.html" class="btn ghost" data-i18n="nav-full">Ver portfolio</a>
+      </nav>
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / Presentación -->
+    <section id="presentacion" class="hero container">
+      <div class="hero-content animate">
+        <h1 data-i18n="hero-title">Diseño web, SEO y contenidos que convierten</h1>
+        <p class="lead" data-i18n="hero-sub">Soy Matías, diseñador web y redactor SEO. Desarrollo sitios optimizados, escalables y con estrategia de contenido.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="portfolio.html" data-i18n="hero-cta-portfolio">Ver portfolio</a>
+          <a class="btn outline" href="#servicios" data-i18n="hero-cta-services">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-image animate" aria-hidden="true">
+        <!-- Placeholder SVG or image (replace with your illustration) -->
+        <svg width="300" height="220" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" role="img">
+          <rect width="300" height="220" rx="12" fill="url(#g)" />
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0%" stop-color="#111"/>
+              <stop offset="100%" stop-color="#6b0000"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="container section">
+      <h2 class="section-title animate" data-i18n="services-title">Servicios</h2>
+      <p class="section-sub animate" data-i18n="services-sub">Diseño UX/UI, desarrollo web, estrategia SEO y contenido optimizado para buscadores.</p>
+
+      <div class="services-grid">
+        <article class="card animate">
+          <h3 data-i18n="svc-web">Diseño y desarrollo web</h3>
+          <p data-i18n="svc-web-desc">Sitios responsivos, velocidad optimizada y enfoque en conversión. Entregables: HTML, CSS, JS, WordPress (si aplica).</p>
+        </article>
+
+        <article class="card animate">
+          <h3 data-i18n="svc-seo">Posicionamiento SEO</h3>
+          <p data-i18n="svc-seo-desc">Auditorías técnicas, optimización on-page, estrategia de palabras clave y seguimiento con Google Search Console y Analytics.</p>
+        </article>
+
+        <article class="card animate">
+          <h3 data-i18n="svc-content">Creación de contenido</h3>
+          <p data-i18n="svc-content-desc">Artículos optimizados, guiones y contenidos para redes; enfoque en intención de búsqueda y tasa de conversión.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Carrusel Portfolio (bloque en home) -->
+    <section id="portfolio" class="container section">
+      <h2 class="section-title animate" data-i18n="mini-portfolio">Portfolio</h2>
+      <div class="carousel animate" aria-roledescription="carousel">
+        <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Replace images with real project thumbnails -->
+          <figure class="carousel-item">
+            <img src="/assets/portfolio-01.jpg" alt="Proyecto 1" loading="lazy">
+            <figcaption>Proyecto 1 — Landing + SEO</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="/assets/portfolio-02.jpg" alt="Proyecto 2" loading="lazy">
+            <figcaption>Proyecto 2 — Tienda online</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="/assets/portfolio-03.jpg" alt="Proyecto 3" loading="lazy">
+            <figcaption>Proyecto 3 — Blog corporativo</figcaption>
+          </figure>
+        </div>
+        <button class="carousel-btn next" aria-label="Siguiente">›</button>
+      </div>
+
+      <div class="cta-more">
+        <a class="btn ghost" href="portfolio.html" data-i18n="cta-more">Ver portfolio completo</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong data-i18n="footer-cta">Contacto</strong></p>
+        <p>Email: <a href="mailto:aguettimatias@gmail.com">aguettimatias@gmail.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/5511978412738?text=Hola%20Mat%C3%ADas%2C%20me%20interesa%20tu%20servicio" target="_blank" rel="noopener">+55 11 97841‑2738</a></p>
+      </div>
+      <div class="footer-actions">
+        <a class="btn primary" href="mailto:aguettimatias@gmail.com" data-i18n="footer-email">Escríbeme</a>
+        <a class="btn outline" href="https://wa.me/5511978412738?text=Hola%20Mat%C3%ADas%2C%20me%20interesa%20tu%20servicio" target="_blank" rel="noopener" data-i18n="footer-whatsapp">WhatsApp</a>
+      </div>
+    </div>
+    <p class="muted small center">© <span id="year"></span> Matías Aguetti — Diseño y SEO</p>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+</html>
+```
