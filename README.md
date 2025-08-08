@@ -1,24 +1,28 @@
---- FILE: README.md ---
-```markdown
-# CV & Portfolio — Plantilla para GitHub Pages
+# CV & Portfolio — Plantilla para GitHub Pages (Matías Aguetti)
 
-**Archivos incluidos**
-- index.html
-- portfolio.html
-- assets/style.css
-- assets/script.js
-- assets/ (aquí deberás subir thumbnails y favicon)
+## Archivos incluidos
+- `index.html` — página principal (presentación, servicios y carrusel resumido).
+- `portfolio.html` — portfolio completo con fichas de proyecto.
+- `assets/style.css` — hoja de estilos (paleta neutra: negro/gris, responsive y animaciones on-scroll).
+- `assets/script.js` — script (i18n ES/EN/PT, carrusel, animaciones, año dinámico).
+- `assets/nomlogo.jpg` — thumbnail para Nomlogo (subir tú la imagen).
+- `assets/clubdeinversores.jpg` — thumbnail para Club de Inversores.
+- `assets/villas-zamna.jpg` — thumbnail para Villas Zamná.
+- `assets/logo-favicon.svg` — logotipo / favicon (subir tú el archivo).
 
-**Cómo desplegar en GitHub Pages**
-1. Crea un repositorio público en GitHub.
-2. Sube los archivos tal como están (index.html en la raíz y carpeta `assets/`).
-3. En Settings > Pages, elige la rama `main` (o `gh-pages`) y la carpeta `/ (root)`.
-4. Espera unos segundos y la web estará disponible en `https://<usuario>.github.io/<repositorio>`.
+## Nombres de archivos de imágenes (sube exactamente así)
+- `assets/nomlogo.jpg` (recomendado 1600×1067, JPG, calidad 80)
+- `assets/clubdeinversores.jpg` (1600×1067)
+- `assets/villas-zamna.jpg` (1600×1067)
+- `assets/logo-favicon.svg` (vector preferible, o `logo-favicon.png` si no tienes SVG)
 
-**Qué sustituir / personalizar**
-- Cambia textos y traducciones en `assets/script.js` (objeto `i18n`).
-- Sustituye imágenes en `assets/` con nombres: `portfolio-01.jpg`, etc.
-- Ajusta colores en `assets/style.css` (variables :root).
-
-**Siguiente paso**
-Envíame los contenidos (presentación, 3-6 proyectos con imágenes y textos, testimonios si los tienes) y adapto el HTML para que quede listo.
+## Cómo desplegar paso a paso en GitHub Pages
+1. **Crear el repositorio:** En GitHub crea un repositorio público, por ejemplo `matias-portfolio`.
+2. **Subir archivos:** Clona el repo localmente y copia los archivos (`index.html`, `portfolio.html`, carpeta `assets/`). Ejemplo:
+```bash
+git clone git@github.com:TU_USUARIO/matias-portfolio.git
+cd matias-portfolio
+# copia los archivos al directorio del repo
+git add .
+git commit -m "Plantilla inicial: CV & portfolio"
+git push origin main
