@@ -1,14 +1,13 @@
-```css
 :root{
   --bg:#0b0b0b;
   --surface:#0f0f10;
   --muted:#9aa0a6;
-  --accent-1:#b71c1c; /* rojo fuerte */
-  --accent-grad: linear-gradient(135deg,#2b2b2b 0%, #6b0000 100%);
+  --accent-1:#6b6b6b; /* acento neutro (gris) */
+  --accent-grad: linear-gradient(135deg,#0a0a0a 0%, #333333 100%);
   --card:#141414;
-  --glass: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.02);
   --max-w:1200px;
-  --radius:14px;
+  --radius:12px;
 }
 
 *{box-sizing:border-box}
@@ -65,7 +64,7 @@ body{
 .center{text-align:center}
 
 /* Helpers */
-.animate{transform:translateY(18px);opacity:0;transition:transform .6s var(--easing, cubic-bezier(.2,.9,.2,1)),opacity .6s}
+.animate{transform:translateY(18px);opacity:0;transition:transform .6s cubic-bezier(.2,.9,.2,1),opacity .6s}
 .animate.inview{transform:none;opacity:1}
 
 /* Responsive */
@@ -78,4 +77,3 @@ body{
 @media (max-width:480px){
   .carousel-item{min-width:80%;max-width:80%}
 }
-```
