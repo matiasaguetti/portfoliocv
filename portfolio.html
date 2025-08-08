@@ -1,0 +1,70 @@
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Matías Aguetti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="index.html">Matías <span class="accent">Aguetti</span></a>
+      <nav class="main-nav">
+        <a href="index.html" data-i18n="nav-home">Inicio</a>
+        <a href="#projects" data-i18n="nav-portfolio">Portfolio</a>
+        <a href="#contact" data-i18n="nav-contact">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title" data-i18n="pf-title">Portfolio completo</h1>
+    <p class="section-sub" data-i18n="pf-sub">Proyectos seleccionados con descripción, tecnologías y resultados.</p>
+
+    <section id="projects" class="projects-grid">
+      <!-- Repeat this article for each project. Replace content and thumbnails. -->
+      <article class="project-card animate">
+        <img src="/assets/portfolio-01.jpg" alt="Proyecto A" loading="lazy">
+        <div class="project-body">
+          <h3>Proyecto A — Tienda de nicho</h3>
+          <p><strong>Servicios:</strong> Diseño, desarrollo, SEO técnico.</p>
+          <p><strong>Tecnologías:</strong> HTML/CSS, JS, WordPress (Woocommerce).</p>
+          <p><strong>Resultados:</strong> +85% en velocidad (Lighthouse), aumento del 40% en tráfico orgánico en 6 meses.</p>
+          <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
+        </div>
+      </article>
+
+      <article class="project-card animate">
+        <img src="/assets/portfolio-02.jpg" alt="Proyecto B" loading="lazy">
+        <div class="project-body">
+          <h3>Proyecto B — Blog corporativo</h3>
+          <p><strong>Servicios:</strong> Estrategia de contenidos y redacción SEO.</p>
+          <p><strong>Resultados:</strong> Reducción de bounce rate y crecimiento sostenido de visitas.</p>
+          <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
+        </div>
+      </article>
+
+    </section>
+
+    <section id="contact" class="section">
+      <h2 data-i18n="contact-title">Contacto</h2>
+      <p data-i18n="contact-sub">¿Listo para trabajar? Contáctame por WhatsApp o correo.</p>
+      <div class="footer-actions">
+        <a class="btn primary" href="mailto:aguettimatias@gmail.com">Escríbeme</a>
+        <a class="btn outline" href="https://wa.me/5511978412738?text=Hola%20Mat%C3%ADas%2C%20me%20interesa%20tu%20servicio" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="muted small center">© <span id="year2"></span> Matías Aguetti</p>
+    </div>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+</html>
+```
