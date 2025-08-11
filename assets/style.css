@@ -10,15 +10,18 @@
   --radius:12px;
 }
 
+/* Reset / base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0; font-family:Inter,system-ui,Segoe UI,Helvetica,Arial; background:var(--bg); color:#eee; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 .container{max-width:var(--max-w);margin:0 auto;padding:28px}
+
+/* Header / brand: mayor contraste y tamaño ligeramente superior */
 .header-grid{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:12px}
-.brand{font-weight:700;text-decoration:none;color:#fff;font-size:1.05rem}
-.brand .accent{background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand{font-weight:700;text-decoration:none;color:#f3f3f3;font-size:1.15rem;letter-spacing:0.2px}
+.brand .accent{color:#f3f3f3} /* ya no usamos degradados en el texto del nombre */
 .main-nav a{margin-left:18px;color:var(--muted);text-decoration:none}
 .main-nav .btn{margin-left:18px}
 .lang-switch{display:flex;gap:6px}
@@ -27,9 +30,15 @@ body{
 
 /* HERO */
 .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding-top:42px;padding-bottom:42px}
-.hero h1{font-size:2rem;margin:0 0 10px}
+.hero h1{font-size:2.2rem;margin:0 0 10px;color:#f6f6f6} /* más grande y gris casi blanco para mayor contraste */
 .lead{color:var(--muted);margin:0 0 18px;max-width:60ch}
 .hero-ctas{display:flex;gap:12px}
+
+/* Logo dentro del hero (imagen PNG) */
+.hero-image{display:flex;align-items:center;justify-content:center}
+.hero-logo{max-width:320px;width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.45);background:transparent}
+
+/* Botones */
 .btn{display:inline-block;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:600}
 .btn.primary{background:var(--accent-1);color:white}
 .btn.outline{border:1px solid rgba(255,255,255,0.06);color:var(--muted);background:transparent}
@@ -63,7 +72,7 @@ body{
 .small{font-size:.85rem}
 .center{text-align:center}
 
-/* Helpers */
+/* Helpers / animaciones */
 .animate{transform:translateY(18px);opacity:0;transition:transform .6s cubic-bezier(.2,.9,.2,1),opacity .6s}
 .animate.inview{transform:none;opacity:1}
 
@@ -76,4 +85,6 @@ body{
 }
 @media (max-width:480px){
   .carousel-item{min-width:80%;max-width:80%}
+  .hero-logo{max-width:260px}
+  .hero h1{font-size:1.6rem}
 }
