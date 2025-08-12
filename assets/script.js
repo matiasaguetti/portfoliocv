@@ -47,12 +47,12 @@
     try{localStorage.setItem('site-lang', lang)}catch(e){}
   }
 
-  document.querySelectorAll('.lang-btn').forEach(b=>{
-    b.addEventListener('click', ()=> setLang(b.getAttribute('data-lang')));
-  });
-  const urlParams = new URLSearchParams(location.search);
-  const initial = urlParams.get('lang') || localStorage.getItem('site-lang') || (navigator.language||'es').slice(0,2);
-  setLang(initial);
+document.querySelectorAll('.lang-btn').forEach(b=>{
+  b.addEventListener('click', ()=> setLang(b.getAttribute('data-lang')));
+});
+const urlParams = new URLSearchParams(location.search);
+const initial = urlParams.get('lang') || localStorage.getItem('site-lang') || (navigator.language||'es').slice(0,2);
+setLang(initial);
 
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
