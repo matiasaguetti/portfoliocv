@@ -14,6 +14,35 @@
 
   <!-- Favicon (sube logo-favicon.svg al directorio assets/) -->
   <link rel="icon" href="assets/logo-favicon.svg" type="image/svg+xml">
+
+  <!-- Fallback para mostrar contenido si el script principal falla:
+       - Si no existe IntersectionObserver, mostramos todo.
+       - Si existe pero no se aplicó .inview en 1s, también revelamos.
+       Esto evita que la UI quede invisible por errores JS. -->
+  <script>
+  (function(){
+    function revealAll(){
+      try{
+        document.querySelectorAll('.animate').forEach(el=>{
+          el.classList.add('inview');
+        });
+      }catch(e){/* ignore */ }
+    }
+    if(!('IntersectionObserver' in window)){
+      document.addEventListener('DOMContentLoaded', revealAll);
+    } else {
+      // Si tras 1000ms no hay ningún elemento con .animate.inview, revelamos todo
+      window.addEventListener('load', function(){
+        setTimeout(function(){
+          if(!document.querySelector('.animate.inview')){
+            revealAll();
+          }
+        }, 1000);
+      });
+    }
+  })();
+  </script>
+
 </head>
 <body>
   <header class="site-header">
@@ -102,38 +131,36 @@
     </section>
 
     <!-- Sección: Empresas con las que he trabajado -->
-<!-- Sección: Empresas con las que he trabajado -->
-<section id="clients" class="container section">
-  <h2 class="section-title animate" data-i18n="clients-title">Empresas con las que he trabajado</h2>
-  <p class="section-sub animate" data-i18n="clients-sub">Proyectos y colaboraciones destacadas con clientes en diseño web, SEO y automatizaciones.</p>
+    <section id="clients" class="container section">
+      <h2 class="section-title animate" data-i18n="clients-title">Empresas con las que he trabajado</h2>
+      <p class="section-sub animate" data-i18n="clients-sub">Proyectos y colaboraciones destacadas con clientes en diseño web, SEO y automatizaciones.</p>
 
-  <div class="clients-grid animate" role="list" aria-label="Empresas con las que he trabajado">
-    <a class="client" role="listitem"
-       href="https://neoattack.com" target="_blank" rel="noopener noreferrer"
-       data-i18n-aria="neoattack-aria">
-      <img src="assets/neoattack.png"
-           data-i18n-alt="neoattack-alt"
-           loading="lazy" width="300" height="80">
-    </a>
+      <div class="clients-grid animate" role="list" aria-label="Empresas con las que he trabajado">
+        <a class="client" role="listitem"
+           href="https://neoattack.com" target="_blank" rel="noopener noreferrer"
+           data-i18n-aria="neoattack-aria">
+          <img src="assets/neoattack.png"
+               data-i18n-alt="neoattack-alt"
+               loading="lazy" width="300" height="80">
+        </a>
 
-    <a class="client" role="listitem"
-       href="https://colorcopygroup.com" target="_blank" rel="noopener noreferrer"
-       data-i18n-aria="colorcopy-aria">
-      <img src="assets/colorcopy.png"
-           data-i18n-alt="colorcopy-alt"
-           loading="lazy" width="300" height="80">
-    </a>
+        <a class="client" role="listitem"
+           href="https://colorcopygroup.com" target="_blank" rel="noopener noreferrer"
+           data-i18n-aria="colorcopy-aria">
+          <img src="assets/colorcopy.png"
+               data-i18n-alt="colorcopy-alt"
+               loading="lazy" width="300" height="80">
+        </a>
 
-    <a class="client" role="listitem"
-       href="https://www.ecoticias.com" target="_blank" rel="noopener noreferrer"
-       data-i18n-aria="ecoticias-aria">
-      <img src="assets/ecoticias.png"
-           data-i18n-alt="ecoticias-alt"
-           loading="lazy" width="300" height="80">
-    </a>
-  </div>
-</section>
-
+        <a class="client" role="listitem"
+           href="https://www.ecoticias.com" target="_blank" rel="noopener noreferrer"
+           data-i18n-aria="ecoticias-aria">
+          <img src="assets/ecoticias.png"
+               data-i18n-alt="ecoticias-alt"
+               loading="lazy" width="300" height="80">
+        </a>
+      </div>
+    </section>
 
   </main>
 
