@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seguridad y gestión de incidentes — Soporte</title>
+  <meta name="description" content="Casos y tipos de incidentes de seguridad en WordPress: backdoors, infecciones JavaScript, redirecciones maliciosas, mu-plugins, vulnerabilidades en plugins y mitigación." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    /* Estilos acordeón / tarjetas (coincidentes con otras páginas de soporte) */
+    .issues-grid { display:block; margin-top:12px; }
+    .issue-card {
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.02);
+      transition: box-shadow .18s ease, transform .18s ease;
+    }
+    .issue-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.45); background: rgba(255,255,255,0.03); }
+    .accordion-header { display:flex; align-items:center; justify-content:space-between; gap:12px; cursor:pointer; }
+    .accordion-header h3 { margin:0; font-size:1.05rem; color:#fff; }
+    .accordion-btn {
+      width:40px; height:40px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);
+      background:transparent; color:var(--muted); font-weight:700; font-size:1.1rem; cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .accordion-btn[aria-expanded="true"] { color:#fff; border-color:rgba(255,255,255,0.12); background:rgba(255,255,255,0.02); }
+    .accordion-content { display:none; margin-top:12px; color:var(--muted); }
+    .accordion-content.open { display:block; }
+    .issue-meta { color:var(--muted); font-size:.95rem; margin-bottom:8px; }
+    @media (max-width:600px){
+      .accordion-header { flex-direction:row; }
+      .accordion-btn { width:36px; height:36px; }
+    }
+
+    /* Destacado para redirecciones maliciosas */
+    .highlight { border-left:4px solid #ff6b6b; padding-left:12px; background: rgba(255,107,107,0.02); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="index.html">Matías <span class="accent">Aguetti</span></a>
+      <nav class="main-nav">
+        <a href="index.html" data-i18n="nav-home">Inicio</a>
+        <a href="index.html#servicios" data-i18n="nav-services">Servicios</a>
+        <a href="index.html#portfolio" data-i18n="nav-portfolio">Portfolio</a>
+        <a href="index.html#support" data-i18n="support-title">Soporte técnico</a>
+      </nav>
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section hero small">
+      <div class="hero-content animate">
+        <h1 data-i18n="ss-title">Problemas de seguridad y vulnerabilidades</h1>
+        <p class="lead" data-i18n="ss-sub">Descripción de incidentes recientes, señales de compromiso y pasos prácticos para mitigar y recuperar un sitio WordPress.</p>
+      </div>
+      <div class="hero-image animate">
+        <img src="assets/support-security-hero.png" alt="" data-i18n-alt="ss-hero-alt" class="hero-logo" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title animate" data-i18n="ss-list-title">Temas y casos relevantes</h2>
+      <p class="section-sub animate" data-i18n="ss-list-sub">Aquí se listan vectores y ataques que han tenido impacto recientemente y cómo abordarlos.</p>
+
+      <div class="issues-grid animate" aria-live="polite">
+
+        <!-- 1: JS backdoors y reinfectors -->
+        <article class="issue-card" id="iss-1">
+          <div class="accordion-header">
+            <h3 data-i18n="ss-1-title">Backdoors JavaScript y reinfecciones</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="iss-content-1" aria-label="Abrir">+</button>
+          </div>
+          <div id="iss-content-1" class="accordion-content" aria-hidden="true">
+            <p class="issue-meta" data-i18n="ss-1-desc">Se han detectado campañas que inyectan JavaScript malicioso en sitios WordPress y crean backdoors persistentes que reescriben archivos y reinfectan incluso tras limpieza parcial.</p>
+            <ul>
+              <li data-i18n="ss-1-evidence">Indicador: scripts externos desconocidos, cambios en archivos .js o mu-plugins y eyecatching redirects en navegadores.</li>
+              <li data-i18n="ss-1-mitigation">Mitigación: escaneo profundo (Sucuri/Wordfence), revisar mu-plugins, comparar hashes, restaurar desde backup limpio y rotar credenciales.</li>
+              <li data-i18n="ss-1-time">Tiempo estimado de recuperación: 4–40 horas (según alcance).</li>
+            </ul>
+            <p class="small muted">Referencias: investigaciones públicas sobre backdoors y reinfectores (Sucuri, TheHackerNews).</p>
+          </div>
+        </article>
+
+        <!-- 2: mu-plugins abused -->
+        <article class="issue-card" id="iss-2">
+          <div class="accordion-header">
+            <h3 data-i18n="ss-2-title">Abuso del directorio mu-plugins</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="iss-content-2" aria-label="Abrir">+</button>
+          </div>
+          <div id="iss-content-2" class="accordion-content" aria-hidden="true">
+            <p class="issue-meta" data-i18n="ss-2-desc">Atacantes usan `mu-plugins` para ocultar código malicioso (autoejecución sin ser detectados como plugin normal).</p>
+            <ul>
+              <li data-i18n="ss-2-evidence">Indicador: archivos PHP nuevos con timestamps recientes en `wp-content/mu-plugins`.</li>
+              <li data-i18n="ss-2-mitigation">Mitigación: auditar mu-plugins, remover archivos no autorizados, aplicar WAF y monitorizar integridad.</li>
+            </ul>
+            <p class="small muted">Fuente: reportes sobre explotación de mu-plugins en ataques recientes.</p>
+          </div>
+        </article>
+
+        <!-- 3: Vulnerabilidades en plugins populares (CVE) -->
+        <article class="issue-card" id="iss-3">
+          <div class="accordion-header">
+            <h3 data-i18n="ss-3-title">Vulnerabilidades críticas en plugins (CVE)</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="iss-content-3" aria-label="Abrir">+</button>
+          </div>
+          <div id="iss-content-3" class="accordion-content" aria-hidden="true">
+            <p class="issue-meta" data-i18n="ss-3-desc">Plugins con fallas de seguridad críticas son vectores frecuentes para inyección de backdoors o ejecución remota (ej. reportes y CVE publicados en 2024).</p>
+            <ul>
+              <li data-i18n="ss-3-evidence">Indicador: versiones antiguas de plugins con avisos públicos o CVE asignado.</li>
+              <li data-i18n="ss-3-mitigation">Mitigación: mantener plugins actualizados, suscribirse a alertas de seguridad (Patchstack/Wordfence) y aplicar pruebas en staging.</li>
+            </ul>
+            <p class="small muted">Referencia: informes de vulnerabilidades y CVE (Patchstack / NVD).</p>
+          </div>
+        </article>
+
+        <!-- 4: Redirecciones maliciosas vía backdoor (destacado) -->
+        <article class="issue-card highlight" id="iss-4">
+          <div class="accordion-header">
+            <h3 data-i18n="ss-4-title">Redirecciones maliciosas por puerta trasera (injected redirects)</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="iss-content-4" aria-label="Abrir">+</button>
+          </div>
+          <div id="iss-content-4" class="accordion-content" aria-hidden="true">
+            <p class="issue-meta" data-i18n="ss-4-desc">Un vector frecuente es la inyección de código que añade una puerta trasera capaz de disparar redirecciones selectivas de usuarios a sitios maliciosos. A veces este código se camufla como una función legítima (p. ej. la lógica que notifica enlaces entrantes o trackbacks) pero en realidad ejecuta redireccionamientos o carga scripts externos.</p>
+            <ul>
+              <li data-i18n="ss-4-evidence">Indicadores: redirecciones intermitentes (solo para algunos navegadores/países), scripts cargados desde dominios no reconocidos, entradas extrañas en base de datos (`wp_options`, `posts` con iframes).</li>
+              <li data-i18n="ss-4-mitigation">Mitigación: revisar archivos y base de datos, buscar funciones 'eval', archivos con timestamps inesperados, eliminar puertas traseras, restaurar desde backup limpio y añadir WAF/ reglas de bloqueo. Evita publicar o compartir fragmentos de código de notificación que no sean auditados.</li>
+              <li data-i18n="ss-4-time">Tiempo estimado: 4–24 horas (depende de la profundidad de la infección).</li>
+            </ul>
+            <p class="small muted">Ver guías de limpieza y casos similares (Patchstack, Sucuri, Wordfence).</p>
+          </div>
+        </article>
+
+        <!-- 5: XML-RPC / pingback abuse & data exfiltration -->
+        <article class="issue-card" id="iss-5">
+          <div class="accordion-header">
+            <h3 data-i18n="ss-5-title">Abuso de XML-RPC / Pingback y exposición de datos</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="iss-content-5" aria-label="Abrir">+</button>
+          </div>
+          <div id="iss-content-5" class="accordion-content" aria-hidden="true">
+            <p class="issue-meta" data-i18n="ss-5-desc">Vulnerabilidades en XML-RPC o endpoints expuestos pueden permitir abusos (DDoS, reflectores, o exfiltración parcial de contenido privado).</p>
+            <ul>
+              <li data-i18n="ss-5-evidence">Indicadores: tráfico inusual a /xmlrpc.php, picos de peticiones o resultados inesperados en oEmbed/pingback.</li>
+              <li data-i18n="ss-5-mitigation">Mitigación: deshabilitar XML-RPC si no se usa, limitar accesos, aplicar WAF y mantener core actualizado.</li>
+            </ul>
+            <p class="small muted">Referencia: avisos recientes sobre posibles vías de exfiltración (Imperva / Trustwave).</p>
+          </div>
+        </article>
+
+        <!-- 6: Compromiso por credenciales débiles / admins fantasma -->
+        <article class="issue-card" id="iss-6">
+          <div class="accordion-header">
+            <h3 data-i18n="ss-6-title">Credenciales comprometidas y administradores fantasma</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="iss-content-6" aria-label="Abrir">+</button>
+          </div>
+          <div id="iss-content-6" class="accordion-content" aria-hidden="true">
+            <p class="issue-meta" data-i18n="ss-6-desc">Accesos por contraseñas débiles o filtradas siguen siendo la causa principal de intrusión; los atacantes crean usuarios admin fantasma para mantener acceso.</p>
+            <ul>
+              <li data-i18n="ss-6-evidence">Indicadores: usuarios admin con emails desconocidos, sesiones activas desde IPs extrañas, wp_users con cambios recientes.</li>
+              <li data-i18n="ss-6-mitigation">Mitigación: eliminar usuarios no autorizados, forzar rotación de contraseñas, activar 2FA y revisar logs de acceso.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 7: Supply chain / plugins descontinuados -->
+        <article class="issue-card" id="iss-7">
+          <div class="accordion-header">
+            <h3 data-i18n="ss-7-title">Supply chain: plugins/desarrollos abandonados</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="iss-content-7" aria-label="Abrir">+</button>
+          </div>
+          <div id="iss-content-7" class="accordion-content" aria-hidden="true">
+            <p class="issue-meta" data-i18n="ss-7-desc">Plugins y themes sin mantenimiento son objetivos repetidos: una librería vulnerable en un plugin puede comprometer todo el sitio.</p>
+            <ul>
+              <li data-i18n="ss-7-evidence">Indicadores: plugins sin actualizaciones por meses, dependencias con CVE conocidas.</li>
+              <li data-i18n="ss-7-mitigation">Mitigación: auditar la lista de plugins, sustituir por alternativas mantenidas y reducir la superficie activando solo lo esencial.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- CTA final -->
+      <div style="margin-top:20px; text-align:center;">
+        <div class="card" style="display:inline-block; text-align:left; max-width:820px; padding:18px;">
+          <h3 data-i18n="ss-cta-title">¿Necesitas un análisis de seguridad?</h3>
+          <p data-i18n="ss-cta-desc">Ofrezco diagnóstico, limpieza de infecciones, hardening y planes de monitoreo. Diagnóstico inicial de 30 minutos con reporte.</p>
+          <div style="display:flex;gap:12px;justify-content:flex-start;margin-top:10px">
+            <a class="btn primary" href="mailto:aguettimatias@gmail.com" data-i18n="ss-cta-email">Escríbeme</a>
+            <a class="btn outline" href="https://wa.me/5511978412738?text=Hola%20Mat%C3%ADas%2C%20necesito%20an%C3%A1lisis%20de%20seguridad" target="_blank" rel="noopener" data-i18n="ss-cta-wa">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="muted small center">© <span id="year2"></span> Matías Aguetti</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+
+  <script>
+    (function(){
+      function toggleAccordion(btn, content) {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        content.classList.toggle('open');
+        content.setAttribute('aria-hidden', expanded ? 'true' : 'false');
+        btn.textContent = expanded ? '+' : '−';
+      }
+
+      document.querySelectorAll('.accordion-header').forEach((header, idx) => {
+        const btn = header.querySelector('.accordion-btn');
+        const content = header.nextElementSibling;
+        if (!content.id) content.id = 'iss-content-' + (idx+1);
+        btn.setAttribute('aria-controls', content.id);
+        btn.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-hidden', 'true');
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleAccordion(btn, content);
+        });
+
+        header.addEventListener('click', (e) => {
+          if (e.target === btn) return;
+          toggleAccordion(btn, content);
+        });
+
+        header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleAccordion(btn, content);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
