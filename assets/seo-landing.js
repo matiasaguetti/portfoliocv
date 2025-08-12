@@ -13,7 +13,7 @@
   const sendToEmail = document.getElementById('sendToEmail');
   const exampleScan = document.getElementById('exampleScan');
 
-  const FUNCTION_URL = 'https://TU-SITE-NETLIFY.netlify.app/.netlify/functions/seo-analyze'; 
+  const FUNCTION_URL = 'https://matiasaguet-ti.netlify.app/.netlify/functions/seo-analyze'; 
   // --- REEMPLAZAR por tu endpoint Netlify al desplegar. ---
 
   exampleScan.addEventListener('click', (e) => {
