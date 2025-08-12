@@ -35,7 +35,35 @@
       'svc-content':'Estratégia e criação de conteúdo','svc-content-desc':'Mapas de conteúdo, clusterização por intenção, redação SEO e otimização de conversões via testes A/B.',
       'mini-portfolio':'Portfólio','cta-more':'Ver portfólio completo','footer-cta':'Contato','footer-email':'Escreva-me','footer-whatsapp':'WhatsApp',
       'nav-contact':'Contato','pf-title':'Portfólio completo','pf-sub':'Projetos selecionados com descrição, tecnologias y resultados.','pf-case':'Ver case','contact-title':'Contato','contact-sub':'Pronto para trabalhar? Contate-me por WhatsApp ou email.'
-    }
+       // en i18n.es
+'clients-title':'Empresas con las que he trabajado',
+'clients-sub':'Proyectos y colaboraciones destacadas con clientes en diseño web, SEO y automatizaciones.',
+'neoattack-alt':'Logo Neoattack — cliente',
+'neoattack-aria':'Neoattack — sitio externo',
+'colorcopy-alt':'Logo Colorcopy Group — cliente',
+'colorcopy-aria':'Colorcopy Group — sitio externo',
+'ecoticias-alt':'Logo ECOticias — cliente',
+'ecoticias-aria':'ECOticias — sitio externo',
+
+// en i18n.en
+'clients-title':'Companies I\'ve worked with',
+'clients-sub':'Selected projects and collaborations in web design, SEO and automations.',
+'neoattack-alt':'Neoattack logo — client',
+'neoattack-aria':'Neoattack — external site',
+'colorcopy-alt':'Colorcopy Group logo — client',
+'colorcopy-aria':'Colorcopy Group — external site',
+'ecoticias-alt':'ECOticias logo — client',
+'ecoticias-aria':'ECOticias — external site',
+
+// en i18n.pt
+'clients-title':'Empresas com as quais trabalhei',
+'clients-sub':'Projetos e colaborações selecionadas em design web, SEO e automações.',
+'neoattack-alt':'Logo Neoattack — cliente',
+'neoattack-aria':'Neoattack — site externo',
+'colorcopy-alt':'Logo Colorcopy Group — cliente',
+'colorcopy-aria':'Colorcopy Group — site externo',
+'ecoticias-alt':'Logo ECOticias — cliente',
+'ecoticias-aria':'ECOticias — site externo', }
     // en i18n.es
 'clients-title':'Empresas con las que he trabajado',
 'clients-sub':'Proyectos y colaboraciones destacadas con clientes en diseño web, SEO y automatizaciones.',
