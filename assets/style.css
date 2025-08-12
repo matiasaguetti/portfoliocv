@@ -88,3 +88,61 @@ body{
   .hero-logo{max-width:260px}
   .hero h1{font-size:1.6rem}
 }
+/* Sección empresas (clients) */
+.clients-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  align-items:center;
+  justify-items:center;
+  margin-top:18px;
+}
+
+.client{
+  display:block;
+  width:100%;
+  max-width:340px;
+  padding:14px;
+  background:var(--card);
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.02);
+  text-align:center;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.client img{
+  max-width:260px;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  filter:grayscale(1) contrast(.95) brightness(1.05);
+  transition:filter .18s ease, transform .18s ease;
+}
+
+.client:focus,
+.client:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.55);
+  outline: none;
+}
+
+.client:focus img,
+.client:hover img{
+  filter:none;
+  transform:scale(1.03);
+}
+
+/* Enfocar por teclado (accesibilidad) */
+.client:focus{
+  box-shadow:0 0 0 3px rgba(100,150,255,0.12), 0 12px 30px rgba(0,0,0,0.55);
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .clients-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:480px){
+  .clients-grid{grid-template-columns:1fr;}
+  .client{max-width:100%;}
+  .client img{max-width:220px}
+}
