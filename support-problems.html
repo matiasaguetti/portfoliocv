@@ -3,15 +3,52 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="sp-prob-meta-title">Problemas comunes en WordPress — Soporte</title>
-  <meta name="description" data-i18n="sp-prob-meta-desc" content="Lista de problemas frecuentes en WordPress y soluciones: rendimiento, seguridad, conflictos de plugins, backups y más." />
+  <title>Problemas comunes en WordPress — Soporte</title>
+  <meta name="description" content="Lista de problemas frecuentes en WordPress y soluciones: rendimiento, seguridad, conflictos de plugins, backups y más." />
 
-  <!-- Fuentes y CSS -->
+  <!-- Fuentes y CSS principal -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+
+  <!-- Estilos específicos de esta página (acordeón + espaciado) -->
+  <style>
+    /* Espaciado estético y estilo acordeón */
+    .problems-grid { display:block; margin-top:12px; }
+    .problem-card {
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.02);
+      transition: box-shadow .18s ease, transform .18s ease, background .18s ease;
+    }
+    .problem-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.45); background: rgba(255,255,255,0.03); }
+
+    .accordion-header {
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .accordion-header h3 { margin:0; font-size:1.05rem; color: #fff; }
+    .accordion-btn {
+      width:40px; height:40px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);
+      background:transparent; color:var(--muted); font-weight:700; font-size:1.1rem; cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .accordion-btn[aria-expanded="true"] { color:#fff; border-color:rgba(255,255,255,0.12); background:rgba(255,255,255,0.02); }
+
+    .accordion-content { display:none; margin-top:12px; color:var(--muted); }
+    .accordion-content.open { display:block; }
+
+    .problem-meta { color:var(--muted); font-size:.95rem; margin-bottom:8px; }
+
+    /* Ajustes responsive */
+    @media (max-width:600px){
+      .accordion-header { flex-direction:row; }
+      .accordion-btn { width:36px; height:36px; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header (coincide con plantilla principal) -->
+  <!-- Header (igual que plantilla principal) -->
   <header class="site-header">
     <div class="container header-grid">
       <a class="brand" href="index.html">Matías <span class="accent">Aguetti</span></a>
@@ -33,113 +70,192 @@
     <section class="section hero small">
       <div class="hero-content animate">
         <h1 data-i18n="sp-prob-title">Problemas comunes en WordPress</h1>
-        <p class="lead" data-i18n="sp-prob-sub">Describo los problemas más frecuentes, su impacto y una estimación realista del tiempo de resolución. Si prefieres, solicito un diagnóstico rápido y te contacto.</p>
+        <p class="lead" data-i18n="sp-prob-sub">Describo los problemas más frecuentes, su impacto y una estimación realista del tiempo de resolución.</p>
       </div>
       <div class="hero-image animate">
-        <img src="assets/support-problems.png" alt="" data-i18n-alt="sp-prob-hero-alt" class="hero-logo" loading="lazy">
+        <img src="assets/support-problems-hero.png" alt="" data-i18n-alt="sp-prob-hero-alt" class="hero-logo" loading="lazy">
       </div>
     </section>
 
-    <!-- Lista de problemas -->
     <section class="section">
       <h2 class="section-title animate" data-i18n="sp-prob-list-title">Problemas frecuentes</h2>
       <p class="section-sub animate" data-i18n="sp-prob-list-sub">Cada ítem incluye causa habitual, impacto y tiempo estimado de resolución.</p>
 
-      <div class="problems-grid animate">
-        <!-- Problema 1 -->
-        <article class="card">
-          <h3 data-i18n="sp-prob-1-title">Pantalla blanca (WSOD) / Error fatal</h3>
-          <p data-i18n="sp-prob-1-desc">Causas: actualización de plugin/tema, error PHP o límite de memoria. Impacto: sitio inaccesible. <strong data-i18n="sp-prob-1-impact">Alto</strong>.</p>
-          <ul>
-            <li data-i18n="sp-prob-1-fix">Solución típica: activar WP_DEBUG en staging, desactivar plugins por CLI/FTP, restaurar backup si es necesario.</li>
-            <li data-i18n="sp-prob-1-time">Tiempo estimado: 30–120 minutos (depende de la causa).</li>
-          </ul>
+      <div class="problems-grid animate" aria-live="polite">
+        <!-- 1 -->
+        <article class="problem-card" id="prob-1">
+          <div class="accordion-header">
+            <h3 data-i18n="sp-prob-1-title">Pantalla blanca (WSOD) / Error fatal</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="content-1" aria-label="Abrir">+</button>
+          </div>
+          <div id="content-1" class="accordion-content" aria-hidden="true">
+            <p class="problem-meta" data-i18n="sp-prob-1-desc">Causas: actualización de plugin/tema, error PHP o límite de memoria. Impacto: sitio inaccesible.</p>
+            <ul>
+              <li data-i18n="sp-prob-1-fix">Solución típica: activar WP_DEBUG en staging, desactivar plugins por CLI/FTP, restaurar backup si es necesario.</li>
+              <li data-i18n="sp-prob-1-time">Tiempo estimado: 30–120 minutos.</li>
+            </ul>
+          </div>
         </article>
 
-        <!-- Problema 2 -->
-        <article class="card">
-          <h3 data-i18n="sp-prob-2-title">Rendimiento lento / Core Web Vitals bajos</h3>
-          <p data-i18n="sp-prob-2-desc">Causas: imágenes sin optimizar, plugins pesados, hosting limitado, scripts bloqueantes. Impacto: pérdida de conversiones y SEO.</p>
-          <ul>
-            <li data-i18n="sp-prob-2-fix">Solución: optimizar imágenes y servir WebP, activar cache (page + object), usar CDN y revisar plugins.</li>
-            <li data-i18n="sp-prob-2-time">Tiempo estimado: 3–12 horas (audit + remediación).</li>
-          </ul>
+        <!-- 2 -->
+        <article class="problem-card" id="prob-2">
+          <div class="accordion-header">
+            <h3 data-i18n="sp-prob-2-title">Rendimiento lento / Core Web Vitals bajos</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="content-2" aria-label="Abrir">+</button>
+          </div>
+          <div id="content-2" class="accordion-content" aria-hidden="true">
+            <p class="problem-meta" data-i18n="sp-prob-2-desc">Causas: imágenes sin optimizar, plugins pesados, hosting limitado, scripts bloqueantes.</p>
+            <ul>
+              <li data-i18n="sp-prob-2-fix">Solución: optimizar imágenes y servir WebP, activar cache (page + object), usar CDN y revisar plugins.</li>
+              <li data-i18n="sp-prob-2-time">Tiempo estimado: 3–12 horas.</li>
+            </ul>
+          </div>
         </article>
 
-        <!-- Problema 3 -->
-        <article class="card">
-          <h3 data-i18n="sp-prob-3-title">Conflictos entre plugins y temas</h3>
-          <p data-i18n="sp-prob-3-desc">Causas: APIs incompatibles, hooks mal empleados o versiones de PHP no compatibles. Impacto: funciones rotas, errores en el front.</p>
-          <ul>
-            <li data-i18n="sp-prob-3-fix">Solución: debug incremental, desactivar y reactivar por grupos, revisar logs y actualizar código en child theme.</li>
-            <li data-i18n="sp-prob-3-time">Tiempo estimado: 1–4 horas.</li>
-          </ul>
+        <!-- 3 -->
+        <article class="problem-card" id="prob-3">
+          <div class="accordion-header">
+            <h3 data-i18n="sp-prob-3-title">Conflictos entre plugins y temas</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="content-3" aria-label="Abrir">+</button>
+          </div>
+          <div id="content-3" class="accordion-content" aria-hidden="true">
+            <p class="problem-meta" data-i18n="sp-prob-3-desc">Causas: APIs incompatibles, hooks mal empleados o versiones de PHP no compatibles. Impacto: funciones rotas, errores en el front.</p>
+            <ul>
+              <li data-i18n="sp-prob-3-fix">Solución: debug incremental, desactivar y reactivar por grupos, revisar logs y actualizar código en child theme.</li>
+              <li data-i18n="sp-prob-3-time">Tiempo estimado: 1–4 horas.</li>
+            </ul>
+          </div>
         </article>
 
-        <!-- Problema 4 -->
-        <article class="card">
-          <h3 data-i18n="sp-prob-4-title">Problemas tras actualizaciones (core, plugins o tema)</h3>
-          <p data-i18n="sp-prob-4-desc">Causas: incompatibilidades o migraciones incompletas. Impacto: funcionalidades perdidas o errores visibles.</p>
-          <ul>
-            <li data-i18n="sp-prob-4-fix">Solución: restaurar desde backup, test en staging, aplicar fixes o versiones compatibles.</li>
-            <li data-i18n="sp-prob-4-time">Tiempo estimado: 1–3 horas.</li>
-          </ul>
+        <!-- 4 -->
+        <article class="problem-card" id="prob-4">
+          <div class="accordion-header">
+            <h3 data-i18n="sp-prob-4-title">Problemas tras actualizaciones (core, plugins o tema)</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="content-4" aria-label="Abrir">+</button>
+          </div>
+          <div id="content-4" class="accordion-content" aria-hidden="true">
+            <p class="problem-meta" data-i18n="sp-prob-4-desc">Causas: incompatibilidades o migraciones incompletas.</p>
+            <ul>
+              <li data-i18n="sp-prob-4-fix">Solución: restaurar desde backup, test en staging, aplicar fixes o versiones compatibles.</li>
+              <li data-i18n="sp-prob-4-time">Tiempo estimado: 1–3 horas.</li>
+            </ul>
+          </div>
         </article>
 
-        <!-- Problema 5 -->
-        <article class="card">
-          <h3 data-i18n="sp-prob-5-title">Sitio comprometido / Malware</h3>
-          <p data-i18n="sp-prob-5-desc">Causas: plugins vulnerables, credenciales filtradas o falta de hardening. Impacto: pérdida de datos, SEO penalizado y riesgo legal.</p>
-          <ul>
-            <li data-i18n="sp-prob-5-fix">Solución: aislamiento, limpieza (scanner + manual), rotación de credenciales, hardening y reporte.</li>
-            <li data-i18n="sp-prob-5-time">Tiempo estimado: 4–40 horas (según alcance del incidente).</li>
-          </ul>
+        <!-- 5 -->
+        <article class="problem-card" id="prob-5">
+          <div class="accordion-header">
+            <h3 data-i18n="sp-prob-5-title">Sitio comprometido / Malware</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="content-5" aria-label="Abrir">+</button>
+          </div>
+          <div id="content-5" class="accordion-content" aria-hidden="true">
+            <p class="problem-meta" data-i18n="sp-prob-5-desc">Causas: plugins vulnerables, credenciales filtradas o falta de hardening. Impacto: pérdida de datos, SEO penalizado y riesgo legal.</p>
+            <ul>
+              <li data-i18n="sp-prob-5-fix">Solución: aislamiento, limpieza (scanner + manual), rotación de credenciales, hardening y reporte.</li>
+              <li data-i18n="sp-prob-5-time">Tiempo estimado: 4–40 horas (según alcance del incidente).</li>
+            </ul>
+          </div>
         </article>
 
-        <!-- Problema 6 -->
-        <article class="card">
-          <h3 data-i18n="sp-prob-6-title">Problemas con pagos / checkout</h3>
-          <p data-i18n="sp-prob-6-desc">Causas: configuración de pasarelas, SSL, webhooks o inconsistencias en productos. Impacto: pérdida de ventas.</p>
-          <ul>
-            <li data-i18n="sp-prob-6-fix">Solución: revisar logs de gateway, probar en sandbox, verificar SSL y endpoints de webhook.</li>
-            <li data-i18n="sp-prob-6-time">Tiempo estimado: 2–8 horas.</li>
-          </ul>
+        <!-- 6 -->
+        <article class="problem-card" id="prob-6">
+          <div class="accordion-header">
+            <h3 data-i18n="sp-prob-6-title">Problemas con pagos / checkout</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="content-6" aria-label="Abrir">+</button>
+          </div>
+          <div id="content-6" class="accordion-content" aria-hidden="true">
+            <p class="problem-meta" data-i18n="sp-prob-6-desc">Causas: configuración de pasarelas, SSL, webhooks o inconsistencias en productos. Impacto: pérdida de ventas.</p>
+            <ul>
+              <li data-i18n="sp-prob-6-fix">Solución: revisar logs de gateway, probar en sandbox, verificar SSL y endpoints de webhook.</li>
+              <li data-i18n="sp-prob-6-time">Tiempo estimado: 2–8 horas.</li>
+            </ul>
+          </div>
         </article>
 
-        <!-- Problema 7 -->
-        <article class="card">
-          <h3 data-i18n="sp-prob-7-title">Entregabilidad de emails</h3>
-          <p data-i18n="sp-prob-7-desc">Causas: mala configuración SMTP, falta de SPF/DKIM o IP compartida en blacklist. Impacto: emails transaccionales no llegan.</p>
-          <ul>
-            <li data-i18n="sp-prob-7-fix">Solución: configuración SMTP profesional, SPF/DKIM/DMARC y uso de provider (SendGrid/Mailgun).</li>
-            <li data-i18n="sp-prob-7-time">Tiempo estimado: 1–3 horas.</li>
-          </ul>
+        <!-- 7 -->
+        <article class="problem-card" id="prob-7">
+          <div class="accordion-header">
+            <h3 data-i18n="sp-prob-7-title">Entregabilidad de emails</h3>
+            <button class="accordion-btn" aria-expanded="false" aria-controls="content-7" aria-label="Abrir">+</button>
+          </div>
+          <div id="content-7" class="accordion-content" aria-hidden="true">
+            <p class="problem-meta" data-i18n="sp-prob-7-desc">Causas: mala configuración SMTP, falta de SPF/DKIM o IP compartida en blacklist. Impacto: emails transaccionales no llegan.</p>
+            <ul>
+              <li data-i18n="sp-prob-7-fix">Solución: configuración SMTP profesional, SPF/DKIM/DMARC y uso de provider (SendGrid/Mailgun).</li>
+              <li data-i18n="sp-prob-7-time">Tiempo estimado: 1–3 horas.</li>
+            </ul>
+          </div>
         </article>
 
       </div>
-    </section>
 
-    <!-- CTA: diagnóstico rápido -->
-    <section class="section">
-      <div class="card" style="text-align:center">
-        <h3 data-i18n="sp-prob-cta-title">¿Necesitas soporte ahora?</h3>
-        <p data-i18n="sp-prob-cta-desc">Solicita un diagnóstico rápido (revisión inicial de 30 minutos) y te propongo pasos concretos y presupuesto.</p>
-        <div class="footer-actions" style="justify-content:center;margin-top:14px">
-          <a class="btn primary" href="mailto:aguettimatias@gmail.com" data-i18n="sp-prob-cta-email">Escríbeme</a>
-          <a class="btn outline" href="https://wa.me/5511978412738?text=Hola%20Mat%C3%ADas%2C%20necesito%20soporte%20t%C3%A9cnico" target="_blank" rel="noopener" data-i18n="sp-prob-cta-wa">WhatsApp</a>
+      <!-- CTA final -->
+      <div style="margin-top:20px; text-align:center;">
+        <div class="card" style="display:inline-block; text-align:left; max-width:820px; padding:18px;">
+          <h3 data-i18n="sp-prob-cta-title">¿Necesitas soporte ahora?</h3>
+          <p data-i18n="sp-prob-cta-desc">Solicita un diagnóstico rápido (revisión inicial de 30 minutos) y te propongo pasos concretos y presupuesto.</p>
+          <div style="display:flex;gap:12px;justify-content:flex-start;margin-top:10px">
+            <a class="btn primary" href="mailto:aguettimatias@gmail.com" data-i18n="sp-prob-cta-email">Escríbeme</a>
+            <a class="btn outline" href="https://wa.me/5511978412738?text=Hola%20Mat%C3%ADas%2C%20necesito%20soporte%20t%C3%A9cnico" target="_blank" rel="noopener" data-i18n="sp-prob-cta-wa">WhatsApp</a>
+          </div>
         </div>
       </div>
-    </section>
 
+    </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <p class="muted small center">© <span id="year2"></span> Matías Aguetti</p>
     </div>
   </footer>
 
+  <!-- Global scripts: tu script principal que hace i18n, carousel y animaciones -->
   <script src="assets/script.js"></script>
+
+  <!-- Script acordeón accesible: toggle + teclas Enter/Space -->
+  <script>
+    (function(){
+      function toggleAccordion(btn, content) {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        content.classList.toggle('open');
+        content.setAttribute('aria-hidden', expanded ? 'true' : 'false');
+        btn.textContent = expanded ? '+' : '−';
+      }
+
+      document.querySelectorAll('.accordion-header').forEach((header, idx) => {
+        const btn = header.querySelector('.accordion-btn');
+        const content = header.nextElementSibling;
+        // ensure aria-controls is set and content has id
+        if (!content.id) content.id = 'content-' + (idx+1);
+        btn.setAttribute('aria-controls', content.id);
+        btn.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-hidden', 'true');
+
+        // click handler on button
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleAccordion(btn, content);
+        });
+
+        // click handler on header (allows clicking title area)
+        header.addEventListener('click', (e) => {
+          // ignore if clicked the button (already handled)
+          if (e.target === btn) return;
+          toggleAccordion(btn, content);
+        });
+
+        // keyboard support for header: Enter or Space toggles
+        header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleAccordion(btn, content);
+          }
+        });
+
+      });
+    })();
+  </script>
 </body>
 </html>
