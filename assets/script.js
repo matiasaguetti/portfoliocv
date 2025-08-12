@@ -25,8 +25,7 @@
       'colorcopy-alt':'Logo Colorcopy Group — cliente',
       'colorcopy-aria':'Colorcopy Group — sitio externo',
       'ecoticias-alt':'Logo ECOticias — cliente',
-      'ecoticias-aria':'ECOticias — sitio externo'
-
+      'ecoticias-aria':'ECOticias — sitio externo',
       'support-title':'Soporte técnico',
 'support-sub':'Atención rápida y profesional para mantener tu WordPress estable, integrado y seguro.',
 'support-prob-title':'Problemas comunes en WordPress',
@@ -64,7 +63,7 @@
       'colorcopy-alt':'Colorcopy Group logo — client',
       'colorcopy-aria':'Colorcopy Group — external site',
       'ecoticias-alt':'ECOticias logo — client',
-      'ecoticias-aria':'ECOticias — external site'
+      'ecoticias-aria':'ECOticias — external site',
   'support-title':'Technical support',
 'support-sub':'Fast, professional support to keep your WordPress stable, integrated and secure.',
 'support-prob-title':'Common WordPress issues',
@@ -82,7 +81,6 @@
 'support-sec-cta':'See security',
 'support-sec-aria':'See security issues',
 'support-sec-img-alt':'Icon security'
-
     },
     pt: {
       'nav-home':'Início','nav-services':'Serviços','nav-portfolio':'Portfólio','nav-full':'Ver portfólio',
@@ -103,7 +101,7 @@
       'colorcopy-alt':'Logo Colorcopy Group — cliente',
       'colorcopy-aria':'Colorcopy Group — site externo',
       'ecoticias-alt':'Logo ECOticias — cliente',
-      'ecoticias-aria':'ECOticias — site externo'
+      'ecoticias-aria':'ECOticias — site externo',
       'support-title':'Suporte técnico',
 'support-sub':'Atendimento rápido e profissional para manter seu WordPress estável, integrado e seguro.',
 'support-prob-title':'Problemas comuns no WordPress',
