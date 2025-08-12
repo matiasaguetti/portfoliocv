@@ -26,6 +26,24 @@
       'colorcopy-aria':'Colorcopy Group — sitio externo',
       'ecoticias-alt':'Logo ECOticias — cliente',
       'ecoticias-aria':'ECOticias — sitio externo'
+
+      'support-title':'Soporte técnico',
+'support-sub':'Atención rápida y profesional para mantener tu WordPress estable, integrado y seguro.',
+'support-prob-title':'Problemas comunes en WordPress',
+'support-prob-desc':'Errores frecuentes, conflictos de plugins o temas y soluciones rápidas para recuperar tu sitio.',
+'support-prob-cta':'Ver problemas',
+'support-prob-aria':'Ver problemas comunes en WordPress',
+'support-prob-img-alt':'Icono problemas WordPress',
+'support-int-title':'Integraciones',
+'support-int-desc':'Conexiones con CRM, pasarelas de pago, plataformas de email y APIs a medida.',
+'support-int-cta':'Ver integraciones',
+'support-int-aria':'Ver integraciones disponibles',
+'support-int-img-alt':'Icono integraciones',
+'support-sec-title':'Problemas de seguridad y otros',
+'support-sec-desc':'Hardening, backups, incidentes recientes y mitigación de vulnerabilidades.',
+'support-sec-cta':'Ver seguridad',
+'support-sec-aria':'Ver problemas de seguridad',
+'support-sec-img-alt':'Icono seguridad'
     },
     en: {
       'nav-home':'Home','nav-services':'Services','nav-portfolio':'Portfolio','nav-full':'See portfolio',
@@ -47,6 +65,24 @@
       'colorcopy-aria':'Colorcopy Group — external site',
       'ecoticias-alt':'ECOticias logo — client',
       'ecoticias-aria':'ECOticias — external site'
+  'support-title':'Technical support',
+'support-sub':'Fast, professional support to keep your WordPress stable, integrated and secure.',
+'support-prob-title':'Common WordPress issues',
+'support-prob-desc':'Frequent errors, plugin/theme conflicts and quick fixes to restore your site.',
+'support-prob-cta':'See issues',
+'support-prob-aria':'See common WordPress issues',
+'support-prob-img-alt':'Icon common issues',
+'support-int-title':'Integrations',
+'support-int-desc':'Connections with CRMs, payment gateways, email platforms and custom APIs.',
+'support-int-cta':'See integrations',
+'support-int-aria':'See common integrations',
+'support-int-img-alt':'Icon integrations',
+'support-sec-title':'Security issues & more',
+'support-sec-desc':'Hardening, backups, recent incidents and vulnerability mitigation.',
+'support-sec-cta':'See security',
+'support-sec-aria':'See security issues',
+'support-sec-img-alt':'Icon security'
+
     },
     pt: {
       'nav-home':'Início','nav-services':'Serviços','nav-portfolio':'Portfólio','nav-full':'Ver portfólio',
@@ -68,6 +104,24 @@
       'colorcopy-aria':'Colorcopy Group — site externo',
       'ecoticias-alt':'Logo ECOticias — cliente',
       'ecoticias-aria':'ECOticias — site externo'
+      'support-title':'Suporte técnico',
+'support-sub':'Atendimento rápido e profissional para manter seu WordPress estável, integrado e seguro.',
+'support-prob-title':'Problemas comuns no WordPress',
+'support-prob-desc':'Erros frequentes, conflitos de plugins ou temas e soluções rápidas para recuperar o site.',
+'support-prob-cta':'Ver problemas',
+'support-prob-aria':'Ver problemas comuns no WordPress',
+'support-prob-img-alt':'Ícone problemas WordPress',
+'support-int-title':'Integrações',
+'support-int-desc':'Conexões com CRM, gateways de pagamento, plataformas de e-mail e APIs sob medida.',
+'support-int-cta':'Ver integrações',
+'support-int-aria':'Ver integrações comuns',
+'support-int-img-alt':'Ícone integrações',
+'support-sec-title':'Problemas de segurança e outros',
+'support-sec-desc':'Hardening, backups, incidentes recentes e mitigação de vulnerabilidades.',
+'support-sec-cta':'Ver segurança',
+'support-sec-aria':'Ver problemas de segurança',
+'support-sec-img-alt':'Ícone segurança'
+
     }
   };
 
