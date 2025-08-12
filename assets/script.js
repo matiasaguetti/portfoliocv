@@ -164,7 +164,16 @@
 'ss-cta-title':'¿Necesitas un análisis de seguridad?',
 'ss-cta-desc':'Ofrezco diagnóstico, limpieza de infecciones, hardening y planes de monitoreo. Diagnóstico inicial de 30 minutos.',
 'ss-cta-email':'Escríbeme',
-'ss-cta-wa':'WhatsApp'
+'ss-cta-wa':'WhatsApp',
+      //SEO-Audit
+      // Español
+'seo-title':'Posicionamiento SEO profesional',
+'seo-sub':'Optimizo tu WordPress para aumentar visibilidad orgánica, mejorar Core Web Vitals y convertir tráfico en clientes.',
+'seo-feat-1':'SEO técnico (estructura, velocidad y Core Web Vitals)',
+'seo-feat-2':'Estrategia de contenidos y keywords',
+'seo-feat-3':'Auditoría de backlinks y optimización on-page',
+'seo-btn-service':'Ver servicio',
+'seo-btn-quick':'Chequeo SEO rápido'
     },
     en: {
       'nav-home':'Home','nav-services':'Services','nav-portfolio':'Portfolio','nav-full':'See portfolio',
@@ -321,7 +330,15 @@
 'ss-cta-title':'Need a security review?',
 'ss-cta-desc':'I provide diagnostics, cleanup, hardening and monitoring plans. Initial 30-minute review available.',
 'ss-cta-email':'Email me',
-'ss-cta-wa':'WhatsApp'
+'ss-cta-wa':'WhatsApp',
+        //SEO-Audit
+        'seo-title':'Professional SEO & positioning',
+'seo-sub':'I optimize WordPress to increase organic visibility, improve Core Web Vitals and convert traffic to customers.',
+'seo-feat-1':'Technical SEO (structure, speed & Core Web Vitals)',
+'seo-feat-2':'Content strategy and keywords',
+'seo-feat-3':'Backlink audit & on-page optimization',
+'seo-btn-service':'See service',
+'seo-btn-quick':'Quick SEO check'
     },
     pt: {
       'nav-home':'Início','nav-services':'Serviços','nav-portfolio':'Portfólio','nav-full':'Ver portfólio',
@@ -478,7 +495,15 @@
 'ss-cta-title':'Precisa de análise de segurança?',
 'ss-cta-desc':'Ofereço diagnóstico, limpeza, hardening e monitoramento. Revisão inicial de 30 minutos disponível.',
 'ss-cta-email':'Escreva-me',
-'ss-cta-wa':'WhatsApp'
+'ss-cta-wa':'WhatsApp',
+        //SEO-Audit
+        'seo-title':'Posicionamento SEO profissional',
+'seo-sub':'Otimizarei seu WordPress para aumentar visibilidade orgânica, melhorar Core Web Vitals e converter tráfego em clientes.',
+'seo-feat-1':'SEO técnico (estrutura, velocidade e Core Web Vitals)',
+'seo-feat-2':'Estratégia de conteúdo e palavras-chave',
+'seo-feat-3':'Auditoria de backlinks e otimização on-page',
+'seo-btn-service':'Ver serviço',
+'seo-btn-quick':'Verificação SEO rápida'
     }
   };
 
