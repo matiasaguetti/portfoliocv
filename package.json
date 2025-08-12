@@ -1,0 +1,8 @@
+{
+  "name": "seo-landing-netlify",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "dependencies": {
+    "jsdom": "^22.1.0"
+  }
+}
