@@ -36,6 +36,35 @@
       'mini-portfolio':'Portfólio','cta-more':'Ver portfólio completo','footer-cta':'Contato','footer-email':'Escreva-me','footer-whatsapp':'WhatsApp',
       'nav-contact':'Contato','pf-title':'Portfólio completo','pf-sub':'Projetos selecionados com descrição, tecnologias y resultados.','pf-case':'Ver case','contact-title':'Contato','contact-sub':'Pronto para trabalhar? Contate-me por WhatsApp ou email.'
     }
+    // en i18n.es
+'clients-title':'Empresas con las que he trabajado',
+'clients-sub':'Proyectos y colaboraciones destacadas con clientes en diseño web, SEO y automatizaciones.',
+'neoattack-alt':'Logo Neoattack — cliente',
+'neoattack-aria':'Neoattack — sitio externo',
+'colorcopy-alt':'Logo Colorcopy Group — cliente',
+'colorcopy-aria':'Colorcopy Group — sitio externo',
+'ecoticias-alt':'Logo ECOticias — cliente',
+'ecoticias-aria':'ECOticias — sitio externo',
+
+// en i18n.en
+'clients-title':'Companies I\'ve worked with',
+'clients-sub':'Selected projects and collaborations in web design, SEO and automations.',
+'neoattack-alt':'Neoattack logo — client',
+'neoattack-aria':'Neoattack — external site',
+'colorcopy-alt':'Colorcopy Group logo — client',
+'colorcopy-aria':'Colorcopy Group — external site',
+'ecoticias-alt':'ECOticias logo — client',
+'ecoticias-aria':'ECOticias — external site',
+
+// en i18n.pt
+'clients-title':'Empresas com as quais trabalhei',
+'clients-sub':'Projetos e colaborações selecionadas em design web, SEO e automações.',
+'neoattack-alt':'Logo Neoattack — cliente',
+'neoattack-aria':'Neoattack — site externo',
+'colorcopy-alt':'Logo Colorcopy Group — cliente',
+'colorcopy-aria':'Colorcopy Group — site externo',
+'ecoticias-alt':'Logo ECOticias — cliente',
+'ecoticias-aria':'ECOticias — site externo',
   };
 
   function setLang(lang){
@@ -45,7 +74,22 @@
       if(map[key]) el.textContent = map[key];
     });
     try{localStorage.setItem('site-lang', lang)}catch(e){}
-  }
+ // después de aplicar textContent a elements [data-i18n]...
+// Actualizar 'alt' en imgs
+document.querySelectorAll('[data-i18n-alt]').forEach(img => {
+  const key = img.getAttribute('data-i18n-alt');
+  if (map[key]) img.alt = map[key];
+});
+
+// Actualizar aria-label en enlaces u otros elementos
+document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+  const key = el.getAttribute('data-i18n-aria');
+  if (map[key]) el.setAttribute('aria-label', map[key]);
+});
+
+// Ajustar atributo lang en <html> (accesibilidad / SEO)
+document.documentElement.lang = lang;
+ }
 
 document.querySelectorAll('.lang-btn').forEach(b=>{
   b.addEventListener('click', ()=> setLang(b.getAttribute('data-lang')));
