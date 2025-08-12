@@ -177,3 +177,25 @@ body{
 @media (max-width:480px){
   .support-grid{grid-template-columns:1fr}
 }
+/* SEO block - horizontal */
+.seo-block { padding: 36px 0; background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent); border-top:1px solid rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.02); }
+.seo-block-inner { display:flex; gap:24px; align-items:center; justify-content:space-between; }
+.seo-media { flex:0 0 360px; max-width:360px; }
+.seo-media img { width:100%; height:auto; border-radius:12px; box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+.seo-content { flex:1; min-width:220px; }
+.seo-content h2 { font-size:1.6rem; color:var(--muted-light, #f7f7f7); margin-bottom:8px; }
+.seo-content .lead { margin-bottom:12px; color:var(--muted); }
+.seo-features { list-style:none; padding:0; margin:0 0 16px 0; display:flex; gap:12px; flex-wrap:wrap; }
+.seo-features li { background:rgba(255,255,255,0.03); padding:8px 12px; border-radius:8px; color:var(--muted); font-size:.95rem; }
+.seo-ctas { display:flex; gap:12px; align-items:center; }
+
+/* Buttons from your style system should be used; these are fallbacks */
+.btn { padding:10px 16px; border-radius:10px; text-decoration:none; display:inline-block; font-weight:600; }
+.btn.primary { background:#111; color:#fff; border:1px solid rgba(255,255,255,0.06); }
+.btn.outline { background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.06); }
+
+/* Responsive */
+@media (max-width:900px) {
+  .seo-block-inner { flex-direction:column; align-items:stretch; }
+  .seo-media { width:100%; max-width:100%; margin-bottom:12px; }
+}
