@@ -1,58 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="seo_audit_title">Auditoría SEO Rápida</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js" defer></script>
-  <script src="seo-landing.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="seo_audit_title">Auditoría SEO Rápida — Matías Aguetti</title>
+  <meta name="description" data-i18n="seo_audit_description" content="Chequeo SEO rápido para detectar title, meta, h1, imágenes y accesibilidad.">
+  <!-- Estilos (asegúrate de que styles.css exista en assets/) -->
+  <link rel="stylesheet" href="assets/styles.css">
+  <!-- jsPDF CDN (para generar PDF) -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <!-- reCAPTCHA si lo usas (opcional) -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- Script cliente -->
+  <script src="assets/seo-landing.js" defer></script>
 </head>
 <body>
-  <!-- Cabecera con menú -->
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="index.html"><img src="logo.png" alt="Logo Matías Aguetti"></a>
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio">
+        <img src="assets/logo.png" alt="Matías Aguetti" class="brand-logo">
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+          <li><a href="portfolio.html" data-i18n="nav_portfolio">Portfolio</a></li>
+          <li><a href="services.html" data-i18n="nav_services">Servicios</a></li>
+          <li><a href="contact.html" data-i18n="nav_contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="controls">
+        <select id="languageSwitcher" aria-label="Idioma">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+        </select>
       </div>
-      <ul class="nav-links">
-        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
-        <li><a href="portfolio.html" data-i18n="nav_portfolio">Portfolio</a></li>
-        <li><a href="services.html" data-i18n="nav_services">Servicios</a></li>
-        <li><a href="contact.html" data-i18n="nav_contact">Contacto</a></li>
-      </ul>
-      <select id="languageSwitcher">
-        <option value="es">ES</option>
-        <option value="en">EN</option>
-        <option value="pt">PT</option>
-      </select>
-    </nav>
+    </div>
   </header>
 
-  <!-- Imagen destacada -->
+  <!-- HERO / BANNER -->
   <section class="hero">
-    <img src="images/seo-audit-banner.jpg" alt="SEO Audit Banner" class="hero-image">
+    <!-- coloca en assets/seo-landing-banner.jpg (recomendado 1920x500) -->
+    <img src="assets/seo-landing-banner.jpg" alt="Auditoría SEO" class="hero-image">
+    <div class="hero-overlay">
+      <div class="hero-content container">
+        <h1 data-i18n="seo_audit_heading">Chequeo SEO Rápido</h1>
+        <p class="lead" data-i18n="seo_audit_subheading">Analiza rápidamente título, meta, H1, imágenes y elementos técnicos clave.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Contenido de la Landing -->
-  <main class="seo-landing-container">
-    <h1 data-i18n="seo_audit_heading">Chequeo SEO Rápido</h1>
-    <p data-i18n="seo_audit_description">
-      Ingresa la URL de tu sitio para recibir un análisis técnico básico de tu SEO y detectar problemas de rendimiento, indexación o accesibilidad.
-    </p>
-    
-    <form id="seo-audit-form">
-      <label for="urlInput" data-i18n="seo_audit_label">Introduce la URL:</label>
-      <input type="url" id="urlInput" name="url" placeholder="https://tusitio.com" required>
-      <button type="submit" data-i18n="seo_audit_button">Analizar</button>
-    </form>
+  <!-- MAIN -->
+  <main class="container seo-landing">
+    <section class="audit-card">
+      <form id="seoForm" class="seo-form" novalidate>
+        <label for="targetUrl" class="label" data-i18n="seo_audit_label">Introduce la URL:</label>
+        <div class="form-row">
+          <input id="targetUrl" name="url" type="url" placeholder="https://tusitio.com/pagina" required>
+          <button id="seoSubmit" class="btn primary" type="submit" data-i18n="seo_audit_button">Analizar</button>
+        </div>
+        <div class="form-hint small muted" id="seoHint" data-i18n="seo_audit_hint">Análisis server-side. El informe puede tardar unos segundos.</div>
+      </form>
+    </section>
 
-    <div id="seo-results"></div>
+    <!-- RESULTADOS: oculto hasta tener datos -->
+    <section id="seoOutput" class="results" aria-live="polite" style="display:none;">
+      <div class="results-header">
+        <h2 id="resultsTitle">Resultado del análisis SEO rápido</h2>
+        <div class="results-actions">
+          <button id="downloadPdf" class="btn outline">Descargar PDF</button>
+          <button id="sendToEmail" class="btn outline">Enviar por email</button>
+        </div>
+      </div>
+
+      <div id="seoSummary" class="summary small muted">Cargando...</div>
+
+      <div id="seoPretty" class="pretty-cards"></div>
+
+      <details class="json-details">
+        <summary>Ver JSON técnico</summary>
+        <pre id="seoJson" class="json-block"></pre>
+      </details>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; <span id="year"></span> Matías Aguetti</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Matías Aguetti — <span class="muted">Diseñador Web, SEO &amp; Content Strategist</span></p>
+    </div>
   </footer>
 </body>
 </html>
