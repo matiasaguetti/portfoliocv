@@ -199,3 +199,99 @@ body{
   .seo-block-inner { flex-direction:column; align-items:stretch; }
   .seo-media { width:100%; max-width:100%; margin-bottom:12px; }
 }
+/* HERO BANNER */
+.hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-bottom: 4px solid #0d6efd;
+}
+
+/* SEO Landing Container */
+.seo-landing-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.seo-landing-container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.seo-landing-container p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Formulario SEO */
+#seo-audit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#seo-audit-form input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#seo-audit-form input:focus {
+  border-color: #0d6efd;
+  outline: none;
+  box-shadow: 0 0 6px rgba(13, 110, 253, 0.4);
+}
+
+#seo-audit-form button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#seo-audit-form button:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+/* Resultados */
+#seo-results {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: left;
+  display: none; /* Oculto hasta que haya resultados */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .seo-landing-container h1 {
+    font-size: 1.8rem;
+  }
+  .seo-landing-container p {
+    font-size: 1rem;
+  }
+}
