@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title data-i18n="seo_audit_title">Auditoría SEO Rápida — Matías Aguetti</title>
-  <meta name="description" data-i18n="seo_audit_description" content="Chequeo SEO rápido para detectar title, meta, h1, imágenes y accesibilidad.">
-  <!-- Estilos (asegúrate de que styles.css exista en assets/) -->
-  <link rel="stylesheet" href="assets/styles.css">
-  <!-- jsPDF CDN (para generar PDF) -->
+  <title>Auditoría SEO Rápida — Matías Aguetti</title>
+
+  <!-- Enlace CSS: usa ruta RELATIVA (asegúrate de que el archivo exista exactamente con ese nombre) -->
+  <link rel="stylesheet" href="./assets/styles.css">
+
+  <!-- jsPDF (cdn) -->
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
-  <!-- reCAPTCHA si lo usas (opcional) -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <!-- Script cliente -->
-  <script src="assets/seo-landing.js" defer></script>
+
+  <!-- Script específico de la landing (ruta relativa) -->
+  <script src="./assets/seo-landing.js" defer></script>
 </head>
 <body>
   <!-- HEADER / NAV -->
