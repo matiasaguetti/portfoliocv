@@ -4,6 +4,7 @@
   "type": "commonjs",
   "dependencies": {
     "jsdom": "^22.1.0",
-    "@sendgrid/mail": "^7.9.0"
+    "@sendgrid/mail": "^7.9.0",
+    "node-fetch": "^2.6.7"
   }
 }
