@@ -132,42 +132,51 @@
   leadClose.onclick = leadCancel.onclick = () => { leadModal.style.display = 'none'; };
   leadBackdrop.onclick = () => { leadModal.style.display = 'none'; };
 
-  leadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('leadName').value.trim();
-    const email = document.getElementById('leadEmail').value.trim();
-    const message = document.getElementById('leadMessage').value.trim();
-    if (!email) return alert('Por favor ingresa tu correo.');
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('leadName').value.trim();
+  const email = document.getElementById('leadEmail').value.trim();
+  const message = document.getElementById('leadMessage').value.trim();
+  if (!email) return alert('Por favor ingresa tu correo.');
 
-    leadSubmit.disabled = true;
-    leadStatus.style.display = 'block';
-    leadStatus.textContent = 'Enviando reporte...';
+  // Obtener token de reCAPTCHA v2 (widget checkbox)
+  const recaptchaResponse = grecaptcha.getResponse();
+  if (!recaptchaResponse) {
+    alert('Por favor completa el reCAPTCHA.');
+    return;
+  }
 
-    const jsonReport = leadModal.dataset.report ? JSON.parse(leadModal.dataset.report) : null;
+  leadSubmit.disabled = true;
+  leadStatus.style.display = 'block';
+  leadStatus.textContent = 'Enviando reporte...';
 
-    // Enviar a la función Netlify que envía email (necesita SENDGRID_API_KEY en Netlify)
-    try {
-      const resp = await fetch(SEND_REPORT_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userName: name, userEmail: email, userMessage: message, report: jsonReport
-        })
-      });
-      const j = await resp.json();
-      if (!resp.ok) {
-        throw new Error(j && j.error ? j.error : 'error sending');
-      }
-      leadStatus.textContent = 'Reporte enviado correctamente. Te contactaré pronto.';
-      // cerrar modal luego de 2s
-      setTimeout(()=> { leadModal.style.display = 'none'; }, 1800);
-    } catch (err) {
-      console.error(err);
-      leadStatus.textContent = 'Error al enviar. Por favor intenta nuevamente o envía un email a aguettimatias@gmail.com';
-    } finally {
-      leadSubmit.disabled = false;
-    }
-  });
+  const jsonReport = leadModal.dataset.report ? JSON.parse(leadModal.dataset.report) : null;
+
+  try {
+    const resp = await fetch(SEND_REPORT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userName: name,
+        userEmail: email,
+        userMessage: message,
+        report: jsonReport,
+        recaptchaToken: recaptchaResponse
+      })
+    });
+    const j = await resp.json();
+    if (!resp.ok) throw new Error(j && j.error ? j.error : 'error sending');
+    leadStatus.textContent = 'Reporte enviado correctamente. Te contactaré pronto.';
+    // reset reCAPTCHA
+    grecaptcha.reset();
+    setTimeout(()=> { leadModal.style.display = 'none'; }, 1800);
+  } catch (err) {
+    console.error(err);
+    leadStatus.textContent = 'Error al enviar. Por favor intenta nuevamente o envía un email a aguettimatias@gmail.com';
+  } finally {
+    leadSubmit.disabled = false;
+  }
+});
 
   // PDF generator using jsPDF UMD
   async function generatePdf(report) {
