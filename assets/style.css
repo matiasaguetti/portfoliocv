@@ -295,3 +295,92 @@ body{
     font-size: 1rem;
   }
 }
+/* ========== Reset / variables ========== */
+:root{
+  --bg: #0b0b0b;
+  --card: #0f1720;
+  --text: #e9ecef;
+  --muted: #9aa0a6;
+  --accent: #1f2937; /* sobrio */
+  --accent-cta: #111827;
+  --primary: #0d6efd;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 10px;
+  --maxwidth: 1100px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background: #fff;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* ========== Container ========== */
+.container{width:90%;max-width:var(--maxwidth);margin:0 auto;padding:18px}
+
+/* ========== Header ========== */
+.site-header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:1000}
+.header-inner{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#111}
+.brand-logo{height:42px;width:auto;display:block}
+.main-nav .nav-links{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
+.main-nav .nav-links a{color:#111;text-decoration:none;font-weight:600}
+.controls select{padding:6px 8px;border-radius:6px;border:1px solid #ddd}
+
+/* ========== HERO ========== */
+.hero{position:relative;overflow:hidden}
+.hero-image{width:100%;height:500px;object-fit:cover;display:block}
+.hero-overlay{position:absolute;inset:0;display:flex;align-items:center}
+.hero-content{color:#fff;margin-left:0;background:linear-gradient(90deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 100%);padding:28px;border-radius:12px;max-width:720px;margin-left:40px}
+.hero h1{margin:0;font-size:2.2rem}
+.hero .lead{margin-top:8px;color:rgba(255,255,255,0.9)}
+
+/* ========== SEO Landing ========== */
+.seo-landing{margin:28px auto 80px; color:#111}
+.audit-card{background:#fff;padding:22px;border-radius:12px;box-shadow:0 6px 20px rgba(16,24,40,0.06);margin-bottom:18px;text-align:center}
+.seo-form .label{display:block;margin-bottom:8px;color:#333;font-weight:600}
+.form-row{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+.form-row input[type="url"]{
+  width:100%;max-width:680px;padding:12px 14px;border-radius:8px;border:1px solid #dfe7ef;font-size:1rem;
+}
+.btn{display:inline-block;padding:10px 14px;border-radius:8px;border:1px solid transparent;cursor:pointer;background:#f1f5f9;color:#111;font-weight:600}
+.btn.primary{background:var(--primary);color:#fff;border-color:transparent}
+.btn.outline{background:transparent;border:1px solid #e6e9ef;color:#111}
+
+/* hint */
+.form-hint{margin-top:10px;color:#666}
+
+/* ========== Results ========== */
+.results{margin-top:18px;background:#fff;padding:18px;border-radius:10px;box-shadow:0 6px 20px rgba(16,24,40,0.04);animation:fadeInUp .28s ease both}
+.results-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.results-header h2{margin:0;font-size:1.15rem}
+.results-actions{display:flex;gap:8px}
+.summary{margin-top:10px;color:#444}
+.pretty-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.card{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04)}
+.card h4{margin:0 0 6px 0;font-size:1rem}
+.json-details{margin-top:12px}
+.json-block{max-height:360px;overflow:auto;background:#fafafa;padding:12px;border-radius:8px;border:1px solid #eee;color:#222}
+
+/* small + muted */
+.small{font-size:.9rem}
+.muted{color:#6b7280}
+
+/* ========== Animations ========== */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.fade-in{animation:fadeInUp .28s ease both}
+
+/* ========== Responsive ========== */
+@media (max-width:880px){
+  .hero-image{height:320px}
+  .hero-content{margin-left:20px;padding:18px}
+  .header-inner{padding:8px 0}
+  .form-row{flex-direction:column}
+  .form-row input, .form-row button{width:100%;max-width:none}
+}
