@@ -71,18 +71,51 @@
       </div>
     </section>
 
+       <!-- Reemplazar la sección de resultados por este bloque -->
     <section id="seoOutput" style="margin-top:18px; display:none;">
       <div class="seo-result" id="seoResultBox">
-        <h3>Resultado rápido</h3>
+        <h3>Resultado del análisis SEO rápido</h3>
+
         <div id="seoSummary" class="small muted">Cargando...</div>
-        <div style="margin-top:10px;">
-          <a id="downloadPdf" class="btn primary" href="#">Descargar PDF</a>
-          <a id="sendToEmail" class="btn outline" href="#">Enviar por email</a>
+
+        <div id="seoPretty" style="margin-top:12px; display:grid; gap:8px;">
+          <!-- Aquí se renderizará una tarjeta limpia con datos clave -->
         </div>
-        <h4 style="margin-top:12px">JSON (técnico)</h4>
-        <pre id="seoJson" class="report-json"></pre>
+
+        <div style="margin-top:12px;">
+          <a id="downloadPdf" class="btn primary" href="#">Descargar PDF</a>
+          <button id="sendToEmail" class="btn outline">Enviar por email</button>
+        </div>
+
+        <details style="margin-top:12px;">
+          <summary style="cursor:pointer">Ver JSON técnico (detallado)</summary>
+          <pre id="seoJson" class="report-json" style="margin-top:8px; max-height:360px; overflow:auto; background:rgba(0,0,0,0.04); padding:10px; border-radius:8px;"></pre>
+        </details>
       </div>
     </section>
+
+    <!-- Modal para capturar email y mensaje antes de enviar -->
+    <div id="leadModal" style="display:none; position:fixed; inset:0; z-index:1400;">
+      <div style="position:absolute; inset:0; background:rgba(0,0,0,0.6);" id="leadBackdrop"></div>
+      <div style="position:relative; max-width:640px; margin:6vh auto; background:#0b0b0b; color:#eaeaea; padding:18px; border-radius:12px;">
+        <button id="leadClose" style="position:absolute; right:12px; top:12px; background:transparent; border:0; color:#999; font-size:18px;">✕</button>
+        <h3 style="margin-top:0">Enviar reporte por email</h3>
+        <p class="small muted">Déjame tu correo y un mensaje breve. Recibirás el resumen y yo te contactaré para la auditoría completa.</p>
+
+        <form id="leadForm" style="display:grid; gap:8px; margin-top:8px;">
+          <input id="leadName" name="name" type="text" placeholder="Tu nombre (opcional)" style="padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#fff;">
+          <input id="leadEmail" name="email" type="email" placeholder="Tu correo (requerido)" required style="padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#fff;">
+          <textarea id="leadMessage" name="message" rows="3" placeholder="Mensaje breve (opcional)" style="padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#fff;"></textarea>
+
+          <div style="display:flex; gap:8px; justify-content:flex-end;">
+            <button id="leadCancel" type="button" class="btn outline">Cancelar</button>
+            <button id="leadSubmit" type="submit" class="btn primary">Enviar reporte</button>
+          </div>
+        </form>
+
+        <div id="leadStatus" class="small muted" style="margin-top:8px; display:none;"></div>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer" style="margin-top:40px;padding:24px 12px;">
