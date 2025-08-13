@@ -1,102 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chequeo SEO rápido — Matías Aguetti</title>
-  <meta name="description" content="Chequeo SEO rápido: analiza título, meta, H1, imágenes y más. Genera informe y solicita auditoría completa." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-  <style>
-    /* estilos mínimos para la landing y modal (si ya los tienes, no pasan nada) */
-    .seo-landing{padding:32px;max-width:1100px;margin:0 auto;color:#eaeaea;font-family:Inter,system-ui,Arial}
-    .seo-form input, .seo-form button{font-size:1rem}
-    .small{font-size:.9rem;color:var(--muted)}
-    .muted{color:var(--muted)}
-    /* modal simple (estilos inline en JS también funcionan) */
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="seo_audit_title">Auditoría SEO Rápida</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+  <script src="seo-landing.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-grid">
-      <a class="brand" href="index.html">Matías <span class="accent">Aguetti</span></a>
-    </div>
+  <!-- Cabecera con menú -->
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="Logo Matías Aguetti"></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="portfolio.html" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="services.html" data-i18n="nav_services">Servicios</a></li>
+        <li><a href="contact.html" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+      <select id="languageSwitcher">
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+        <option value="pt">PT</option>
+      </select>
+    </nav>
   </header>
 
-  <main class="seo-landing">
-    <section class="seo-hero">
-      <div>
-        <h1>Chequeo SEO rápido — Audita cualquier URL</h1>
-        <p class="lead">Escribe cualquier URL y ejecuta un análisis server-side que revisa título, meta, H1, imágenes, enlaces, y más. Obtén un informe descargable y solicita una auditoría completa.</p>
+  <!-- Imagen destacada -->
+  <section class="hero">
+    <img src="images/seo-audit-banner.jpg" alt="SEO Audit Banner" class="hero-image">
+  </section>
 
-        <form id="seoForm" class="seo-form" onsubmit="return false;">
-          <input id="targetUrl" type="url" placeholder="https://ejemplo.com/pagina" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
-          <button id="seoSubmit" class="btn primary" style="padding:10px 14px;border-radius:10px;margin-left:8px">Analizar</button>
-        </form>
+  <!-- Contenido de la Landing -->
+  <main class="seo-landing-container">
+    <h1 data-i18n="seo_audit_heading">Chequeo SEO Rápido</h1>
+    <p data-i18n="seo_audit_description">
+      Ingresa la URL de tu sitio para recibir un análisis técnico básico de tu SEO y detectar problemas de rendimiento, indexación o accesibilidad.
+    </p>
+    
+    <form id="seo-audit-form">
+      <label for="urlInput" data-i18n="seo_audit_label">Introduce la URL:</label>
+      <input type="url" id="urlInput" name="url" placeholder="https://tusitio.com" required>
+      <button type="submit" data-i18n="seo_audit_button">Analizar</button>
+    </form>
 
-        <div style="margin-top:10px">
-          <a id="exampleScan" class="btn outline" href="#" style="padding:8px 12px;border-radius:8px">Probar con ejemplo</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESULTADO -->
-    <section id="seoOutput" style="margin-top:18px; display:none;">
-      <div class="seo-result" id="seoResultBox" style="background:rgba(255,255,255,0.02);padding:16px;border-radius:12px">
-        <h3>Resultado del análisis SEO rápido</h3>
-
-        <div id="seoSummary" class="small muted">Cargando...</div>
-
-        <div id="seoPretty" style="margin-top:12px; display:grid; gap:8px;"></div>
-
-        <div style="margin-top:12px;">
-          <a id="downloadPdf" class="btn primary" href="#" style="margin-right:8px">Descargar PDF</a>
-          <button id="sendToEmail" class="btn outline">Enviar por email</button>
-        </div>
-
-        <details style="margin-top:12px;">
-          <summary style="cursor:pointer">Ver JSON técnico (detallado)</summary>
-          <pre id="seoJson" class="report-json" style="margin-top:8px;max-height:360px;overflow:auto;background:rgba(0,0,0,0.04);padding:10px;border-radius:8px;"></pre>
-        </details>
-      </div>
-    </section>
+    <div id="seo-results"></div>
   </main>
 
-  <!-- MODAL lead (asegúrate que los IDs coinciden con el JS) -->
-  <div id="leadModal" style="display:none;position:fixed;inset:0;z-index:1400;">
-    <div id="leadBackdrop" style="position:absolute;inset:0;background:rgba(0,0,0,0.6)"></div>
-    <div style="position:relative;max-width:640px;margin:6vh auto;background:#0b0b0b;color:#eaeaea;padding:18px;border-radius:12px;">
-      <button id="leadClose" style="position:absolute;right:12px;top:12px;background:transparent;border:0;color:#999;font-size:18px">✕</button>
-      <h3 style="margin-top:0">Enviar reporte por email</h3>
-      <p class="small muted">Déjame tu correo y un mensaje breve. Recibirás el resumen y te contactaré para la auditoría.</p>
-
-      <form id="leadForm" style="display:grid;gap:8px;margin-top:8px;">
-        <input id="leadName" name="name" type="text" placeholder="Tu nombre (opcional)" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
-        <input id="leadEmail" name="email" type="email" placeholder="Tu correo (requerido)" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
-        <textarea id="leadMessage" name="message" rows="3" placeholder="Mensaje breve (opcional)" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff"></textarea>
-
-        <!-- reCAPTCHA widget: reemplaza TU_RECAPTCHA_SITE_KEY -->
-        <div style="margin-top:6px;">
-          <div id="recaptcha-container" class="g-recaptcha" data-sitekey="6LcwC6UrAAAAAEWgdclhfJ4rS_cfWUI9Gi-4Dvdg"></div>
-        </div>
-
-        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px;">
-          <button id="leadCancel" type="button" class="btn outline">Cancelar</button>
-          <button id="leadSubmit" type="submit" class="btn primary">Enviar reporte</button>
-        </div>
-      </form>
-
-      <div id="leadStatus" class="small muted" style="margin-top:8px;display:none;"></div>
-    </div>
-  </div>
-
-  <!-- jsPDF CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-
-  <!-- reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-  <!-- tu script cliente -->
-  <script src="assets/seo-landing.js" defer></script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Matías Aguetti</p>
+  </footer>
 </body>
 </html>
