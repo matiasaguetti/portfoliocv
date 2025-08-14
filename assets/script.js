@@ -173,7 +173,20 @@
 'seo-feat-2':'Estrategia de contenidos y keywords',
 'seo-feat-3':'Auditoría de backlinks y optimización on-page',
 'seo-btn-service':'Ver servicio',
-'seo-btn-quick':'Chequeo SEO rápido'
+'seo-btn-quick':'Chequeo SEO rápido',
+      //Portfolio
+      'pf-seo-content-title':'Contenidos SEO para blog — Club de Inversores',
+'pf-seo-content-desc':'Planificación editorial, clusterización por intención y optimización on-page para escalar tráfico orgánico.',
+'pf-seo-content-feat-1':'Estrategia de palabras clave y mapeo de temas',
+'pf-seo-content-feat-2':'Calendario editorial y brief para redactores',
+'pf-seo-content-feat-3':'Optimización de artículos y rich snippets',
+'pf-seo-tech-title':'SEO técnico — Nomlogo',
+'pf-seo-tech-sub':'Auditorías técnicas, Core Web Vitals y corrección de errores para mejorar indexación.',
+'pf-web-design-title':'Diseño web & conversiones — Villas Zamná',
+'pf-web-design-desc':'Diseño orientado a reservas: integración API, motor de reservas y optimización de conversión.',
+'pf-web-design-feat-1':'Integración Hostaway y motor de reservas',
+'pf-web-design-feat-2':'Child-theme Divi con CSS optimizado',
+'pf-web-design-feat-3':'Popups y micro-interacciones para reservas'
     },
     en: {
       'nav-home':'Home','nav-services':'Services','nav-portfolio':'Portfolio','nav-full':'See portfolio',
@@ -338,7 +351,20 @@
 'seo-feat-2':'Content strategy and keywords',
 'seo-feat-3':'Backlink audit & on-page optimization',
 'seo-btn-service':'See service',
-'seo-btn-quick':'Quick SEO check'
+'seo-btn-quick':'Quick SEO check',
+        //Portfolio
+        'pf-seo-content-title':'SEO content for blog — Club de Inversores',
+'pf-seo-content-desc':'Editorial planning, intent clusters and on-page optimization to scale organic traffic.',
+'pf-seo-content-feat-1':'Keyword strategy and topic mapping',
+'pf-seo-content-feat-2':'Editorial calendar and briefs for writers',
+'pf-seo-content-feat-3':'Article optimization and rich snippets',
+'pf-seo-tech-title':'Technical SEO — Nomlogo',
+'pf-seo-tech-sub':'Technical audits, Core Web Vitals and fixes to improve indexing.',
+'pf-web-design-title':'Web design & conversions — Villas Zamná',
+'pf-web-design-desc':'Reservation-oriented design: API integration, booking engine and conversion optimization.',
+'pf-web-design-feat-1':'Hostaway integration and booking engine',
+'pf-web-design-feat-2':'Divi child-theme with optimized CSS',
+'pf-web-design-feat-3':'Popups and micro-interactions to increase bookings'
     },
     pt: {
       'nav-home':'Início','nav-services':'Serviços','nav-portfolio':'Portfólio','nav-full':'Ver portfólio',
@@ -503,7 +529,20 @@
 'seo-feat-2':'Estratégia de conteúdo e palavras-chave',
 'seo-feat-3':'Auditoria de backlinks e otimização on-page',
 'seo-btn-service':'Ver serviço',
-'seo-btn-quick':'Verificação SEO rápida'
+'seo-btn-quick':'Verificação SEO rápida',
+        //Portfolio
+        'pf-seo-content-title':'Conteúdo SEO para blog — Club de Inversores',
+'pf-seo-content-desc':'Planejamento editorial, clusterização por intenção e otimização on-page para aumentar tráfego orgânico.',
+'pf-seo-content-feat-1':'Estratégia de palavras-chave e mapeamento de temas',
+'pf-seo-content-feat-2':'Calendário editorial e briefs para redatores',
+'pf-seo-content-feat-3':'Otimização de artigos e rich snippets',
+'pf-seo-tech-title':'SEO técnico — Nomlogo',
+'pf-seo-tech-sub':'Auditorias técnicas, Core Web Vitals e correção de erros para melhorar indexação.',
+'pf-web-design-title':'Design web & conversões — Villas Zamná',
+'pf-web-design-desc':'Design orientado a reservas: integração de API, motor de reservas e otimização de conversão.',
+'pf-web-design-feat-1':'Integração Hostaway e motor de reservas',
+'pf-web-design-feat-2':'Child-theme Divi com CSS otimizado',
+'pf-web-design-feat-3':'Popups e micro-interações para aumentar reservas'
     }
   };
 
