@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="pf-title">Portfolio — Matías Aguetti</title>
+  <title>Portfolio — Matías Aguetti</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -23,102 +23,44 @@
     <h1 class="section-title" data-i18n="pf-title">Portfolio completo</h1>
     <p class="section-sub" data-i18n="pf-sub">Proyectos seleccionados con descripción, tecnologías y resultados.</p>
 
-    <!-- -------------------------------------------------------
-         SECCIÓN 1 — Contenidos SEO para blog (enfocado: Club de Inversores)
-         ------------------------------------------------------- -->
-    <section id="seo-content" class="section seo-block animate" aria-labelledby="seo-content-title">
-      <div class="seo-block-inner container">
-        <div class="seo-media">
-          <img src="assets/clubdeinversores.jpg" alt="Club de Inversores" loading="lazy">
+    <section id="projects" class="projects-grid">
+
+      <article class="project-card animate">
+        <img src="assets/nomlogo.jpg" alt="Nomlogo" loading="lazy">
+        <div class="project-body">
+          <h3>Nomlogo — Estrategia de contenidos y SEO</h3>
+          <p><strong>Rol:</strong> Miembro del equipo de contenidos y SEO strategist.</p>
+          <p><strong>Descripción:</strong> Planificación e implementación de estrategias de contenidos para el blog, focalizadas en keywords relacionadas con mantenimiento web, diseño y desarrollo en WordPress.</p>
+          <p><strong>Tecnologías / herramientas:</strong> WordPress, Google Search Console, Google Analytics, Ahrefs (o similar).</p>
+          <p><strong>Resultados:</strong> Posicionamiento del sitio en primeros puestos para keywords estratégicas (métricas disponibles bajo petición).</p>
+          <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
         </div>
-        <div class="seo-content">
-          <h2 id="seo-content-title" data-i18n="pf-seo-content-title">Contenidos SEO para blog — Club de Inversores</h2>
-          <p class="lead" data-i18n="pf-seo-content-desc">
-            Planificación editorial, clusterización por intención y optimización on-page para escalar tráfico orgánico de nicho financiero.
-          </p>
+      </article>
 
-          <ul class="seo-features">
-            <li data-i18n="pf-seo-content-feat-1">Estrategia de palabras clave y mapeo de temas</li>
-            <li data-i18n="pf-seo-content-feat-2">Calendario editorial y brief para redactores</li>
-            <li data-i18n="pf-seo-content-feat-3">Optimización de artículos y rich snippets</li>
-          </ul>
-
-          <p class="muted small">
-            <strong>Resultados destacados:</strong> incremento de clicks orgánicos de ~20/día a ~220/día en 6 meses (datos aportados por el autor del proyecto).
-          </p>
-
-          <p class="muted small">
-            Contexto: Club de Inversores es una plataforma de membresías y cursos sobre finanzas; las audiencias B2C/B2B para este sector responden bien a contenidos prácticos y formatos de briefing descargable (informes, guías y newsletters). Fuente del sitio del cliente: <a href="https://clubdeinversores.com/" target="_blank" rel="noopener">clubdeinversores.com</a>. :contentReference[oaicite:0]{index=0}
-          </p>
-
-          <div class="seo-ctas">
-            <a class="btn primary" href="#" onclick="window.location='seo-landing.html'">Chequeo SEO rápido</a>
-            <a class="btn outline" href="#" data-i18n="pf-case">Ver case</a>
-          </div>
+      <article class="project-card animate">
+        <img src="assets/clubdeinversores.jpg" alt="Club de Inversores" loading="lazy">
+        <div class="project-body">
+          <h3>Club de Inversores — Plataforma de membresías</h3>
+          <p><strong>Descripción:</strong> Desarrollo con Elementor; integración con HubSpot y s2Member para venta de membresías orientadas a cursos sobre finanzas e inversiones.</p>
+          <p><strong>Tecnologías / herramientas:</strong> WordPress, Elementor, HubSpot, s2Member, APIs para pasarelas y analytics.</p>
+          <p><strong>Resultados:</strong> Incremento de clics orgánicos de ~20 por día a ~220 por día en 6 meses tras estrategia de contenidos y SEO.</p>
+          <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
         </div>
-      </div>
+      </article>
+
+      <article class="project-card animate">
+        <img src="assets/villas-zamna.jpg" alt="Villas Zamná" loading="lazy">
+        <div class="project-body">
+          <h3>Villas Zamná — Motor de reservas y multilenguaje</h3>
+          <p><strong>Descripción:</strong> Sitio para reservas de villas en Cozumel, desarrollado con Divi. Integración con Hostaway vía API y motor de reservas inyectado mediante código; multilenguaje con WPML y traducción manual.</p>
+          <p><strong>Tecnologías / herramientas:</strong> Divi (child theme), WPML, Hostaway API, JS personalizado para popups y motor de reservas.</p>
+          <p><strong>Resultados:</strong> +60% en interacciones orgánicas en 6 meses y +40% en conversiones directas a reservas en Hostaway.</p>
+          <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
+        </div>
+      </article>
+
     </section>
 
-    <!-- -------------------------------------------------------
-         SECCIÓN 2 — SEO técnico (enfocado: Nomlogo)
-         ------------------------------------------------------- -->
-    <section id="seo-technical" class="section animate">
-      <div class="section-inner container">
-        <h2 data-i18n="pf-seo-tech-title">SEO técnico — Nomlogo</h2>
-        <p class="section-sub" data-i18n="pf-seo-tech-sub">
-          Auditorías técnicas, corrección de errores, optimización de Core Web Vitals y arquitectura para indexación y rastreo.
-        </p>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <img src="assets/nomlogo.jpg" alt="Nomlogo" loading="lazy">
-            <div class="project-body">
-              <h3>Nomlogo — Consultoría y SEO técnico</h3>
-              <p><strong>Rol:</strong> Auditoría técnica y optimización on-site en WordPress.</p>
-              <p><strong>Qué se hizo:</strong> optimización de estructura de URLs, metadatos, schema básico, mejora en tiempo de carga y Core Web Vitals, y trabajo de contenidos coordinado.</p>
-              <p><strong>Tecnologías:</strong> WordPress, optimización de imágenes/serving, código en child-theme y mejoras de CSS/JS críticas.</p>
-              <p class="muted small">Contexto y servicios de Nomlogo: empresa enfocada en consultoría WordPress y SEO que ofrece mantenimiento, auditorías y soporte. :contentReference[oaicite:1]{index=1}</p>
-              <a class="btn ghost" href="#" data-i18n="pf-case">Ver case</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- -------------------------------------------------------
-         SECCIÓN 3 — Diseño web (enfocado: Villas Zamná)
-         ------------------------------------------------------- -->
-    <section id="web-design" class="section seo-block animate" aria-labelledby="web-design-title">
-      <div class="seo-block-inner container">
-        <div class="seo-media">
-          <img src="assets/villas-zamna.jpg" alt="Villas Zamná" loading="lazy">
-        </div>
-        <div class="seo-content">
-          <h2 id="web-design-title" data-i18n="pf-web-design-title">Diseño web & conversiones — Villas Zamná</h2>
-          <p class="lead" data-i18n="pf-web-design-desc">
-            Diseño orientado a reservas: integración API Hostaway, motor de reservas inyectado y multilenguaje con WPML.
-          </p>
-
-          <ul class="seo-features">
-            <li data-i18n="pf-web-design-feat-1">Integración Hostaway (API) y motor de reservas personalizado</li>
-            <li data-i18n="pf-web-design-feat-2">Tema Divi en child-theme con CSS optimizado</li>
-            <li data-i18n="pf-web-design-feat-3">Popup y UX para aumentar conversiones</li>
-          </ul>
-
-          <p class="muted small">
-            Resultados aportados: +60% interacciones orgánicas en 6 meses y +40% conversiones directas a reservas (datos del autor).  
-            Información pública sobre la oferta y listados: página oficial y sitio de reservas. :contentReference[oaicite:2]{index=2}
-          </p>
-
-          <div class="seo-ctas">
-            <a class="btn primary" href="support-integrations.html" data-i18n="pf-case">Ver integraciones</a>
-            <a class="btn outline" href="#" data-i18n="pf-case">Ver case</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
     <section id="contact" class="section">
       <h2 data-i18n="contact-title">Contacto</h2>
       <p data-i18n="contact-sub">¿Listo para trabajar? Contáctame por WhatsApp o correo.</p>
