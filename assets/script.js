@@ -587,7 +587,50 @@
 'contact-sub': 'Pronto para trabalhar? Entre em contato via WhatsApp ou e-mail.',
     }
   };
+/* ---------- Auto-assign data-i18n for portfolio project blocks ----------
+   This will find the three .project-card items, detect which project each
+   one is (by looking for 'Nomlogo', 'Club de Inversores', 'Villas Zamná')
+   and add data-i18n attributes to the h3 and the following paragraphs so
+   the existing i18n engine can translate them.
+-------------------------------------------------------------------------*/
+(function applyProjectI18n(){
+  try {
+    const cards = document.querySelectorAll('.project-card');
+    if (!cards || !cards.length) return;
+    cards.forEach(card => {
+      const h3 = card.querySelector('h3');
+      const ps = Array.from(card.querySelectorAll('p'));
+      const titleText = (h3 && h3.textContent || '').trim();
 
+      // Nomlogo
+      if (/Nomlogo/i.test(titleText)) {
+        h3 && h3.setAttribute('data-i18n','pf-nomlogo-title');
+        if (ps[0]) ps[0].setAttribute('data-i18n','pf-nomlogo-role');
+        if (ps[1]) ps[1].setAttribute('data-i18n','pf-nomlogo-desc');
+        if (ps[2]) ps[2].setAttribute('data-i18n','pf-nomlogo-tech');
+        if (ps[3]) ps[3].setAttribute('data-i18n','pf-nomlogo-results');
+      }
+
+      // Club de Inversores
+      else if (/Club de Inversores/i.test(titleText) || /Club de Inversores/i.test(card.textContent)) {
+        h3 && h3.setAttribute('data-i18n','pf-club-title');
+        if (ps[0]) ps[0].setAttribute('data-i18n','pf-club-desc');
+        if (ps[1]) ps[1].setAttribute('data-i18n','pf-club-tech');
+        if (ps[2]) ps[2].setAttribute('data-i18n','pf-club-results');
+      }
+
+      // Villas Zamná
+      else if (/Villas\s*Zam/i.test(titleText) || /Villas Zamná/i.test(card.textContent)) {
+        h3 && h3.setAttribute('data-i18n','pf-villas-title');
+        if (ps[0]) ps[0].setAttribute('data-i18n','pf-villas-desc');
+        if (ps[1]) ps[1].setAttribute('data-i18n','pf-villas-tech');
+        if (ps[2]) ps[2].setAttribute('data-i18n','pf-villas-results');
+      }
+    });
+  } catch (err) {
+    console.warn('applyProjectI18n error', err);
+  }
+})();
   function setLang(lang){
     const map = i18n[lang] || i18n['es'];
 
@@ -673,6 +716,7 @@
     let timer = setInterval(()=> show(idx+1), 4500);
     track.addEventListener('mouseenter', ()=> clearInterval(timer));
     track.addEventListener('mouseleave', ()=> timer = setInterval(()=> show(idx+1), 4500));
+    
   }
 
 })();
