@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="case-nomlogo-title">Case Nomlogo — Estrategia de contenidos & SEO</title>
+  <meta name="description" data-i18n="case-nomlogo-meta">
+  <!-- CSS (ruta relativa desde /cases/) -->
+  <link rel="stylesheet" href="../assets/style.css">
+  <!-- jsPDF para descarga PDF (opcional) -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <!-- script global (traducciones, language switcher) -->
+  <script src="../assets/script.js" defer></script>
+  <script>
+    // Metadata JSON-LD (básico)
+    const caseJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Case — Nomlogo: Estrategia de contenidos y SEO",
+      "author": { "@type": "Person", "name": "Matías Aguetti" },
+      "publisher": { "@type": "Organization", "name": "Matías Aguetti" },
+      "datePublished": "2025-08-13",
+      "description": "Case study sobre estrategia de contenidos y SEO técnico realizado para Nomlogo."
+    };
+    document.addEventListener('DOMContentLoaded', ()=> {
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.text = JSON.stringify(caseJsonLd);
+      document.head.appendChild(s);
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="../index.html">Matías <span class="accent">Aguetti</span></a>
+      <nav class="main-nav">
+        <a href="../index.html" data-i18n="nav-home">Inicio</a>
+        <a href="../portfolio.html" data-i18n="nav-portfolio">Portfolio</a>
+        <a href="../index.html#contact" data-i18n="nav-contact">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container case-container">
+    <article class="case-hero">
+      <div class="case-hero-inner">
+        <img src="../assets/logo.png" alt="Logo Matías Aguetti" class="case-logo">
+        <div>
+          <h1 data-i18n="case-nomlogo-title">Nomlogo — Estrategia de contenidos y SEO</h1>
+          <p class="lead" data-i18n="case-nomlogo-sub">Planificación editorial, optimización on-page y coordinación de contenidos para escalar tráfico orgánico en un proyecto WordPress.</p>
+          <div class="case-ctas">
+            <button id="downloadCasePdf" class="btn primary" data-i18n="case-cta-download">Descargar case (PDF)</button>
+            <a href="mailto:aguettimatias@gmail.com?subject=Interesado%20en%20case%20Nomlogo" class="btn outline" data-i18n="case-cta-contact">Solicitar presupuesto</a>
+            <a href="https://wa.me/5511978412738?text=Hola%20Mat%C3%ADas%20%2D%20Quiero%20info%20sobre%20Nomlogo" target="_blank" rel="noopener" class="btn ghost">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Resumen del proyecto -->
+    <section class="case-section" id="overview">
+      <h2 data-i18n="case-overview-title">Resumen</h2>
+      <p data-i18n="case-overview-p">Trabajo enfocado en estrategia de contenidos para blog y optimización SEO on-page sobre una instalación WordPress gestionada por Nomlogo. Rol: miembro del equipo de contenidos y SEO strategist.</p>
+
+      <ul class="case-meta">
+        <li><strong data-i18n="case-meta-client">Cliente:</strong> Nomlogo. :contentReference[oaicite:0]{index=0}</li>
+        <li><strong data-i18n="case-meta-role">Rol:</strong> Contenidos, planificación y SEO técnico.</li>
+        <li><strong data-i18n="case-meta-duration">Duración:</strong> 6 meses (trabajo iterativo con calendarización editorial).</li>
+      </ul>
+    </section>
+
+    <!-- Problema -->
+    <section class="case-section" id="challenge">
+      <h2 data-i18n="case-challenge-title">Problema</h2>
+      <p data-i18n="case-challenge-p">
+        El blog necesitaba aumentar tráfico orgánico cualificado para mejorar conversiones de servicios y captar leads especializados en mantenimiento y desarrollo WordPress; era necesario estructurar contenidos por intención y optimizar SEO on-page y técnica.
+      </p>
+    </section>
+
+    <!-- Solución -->
+    <section class="case-section" id="solution">
+      <h2 data-i18n="case-solution-title">Solución implementada</h2>
+
+      <h3 data-i18n="case-solution-1-title">Estrategia editorial</h3>
+      <ul>
+        <li data-i18n="case-solution-1-1">Mapeo de topics y clusterización por intención de búsqueda.</li>
+        <li data-i18n="case-solution-1-2">Calendario editorial con briefs SEO para redactores (titles, metas, estructura H2/H3 y preguntas frecuentes).</li>
+        <li data-i18n="case-solution-1-3">Optimización on-page: titles, metas, heading structure y microformatos para rich snippets.</li>
+      </ul>
+
+      <h3 data-i18n="case-solution-2-title">Acciones técnicas</h3>
+      <ul>
+        <li data-i18n="case-solution-2-1">Auditoría de indexabilidad: robots, sitemap y canonicalización.</li>
+        <li data-i18n="case-solution-2-2">Corrección de issues detectados en Google Search Console (404s, contenidos duplicados y redirecciones).</li>
+        <li data-i18n="case-solution-2-3">Optimización de rendimiento crítico (critical CSS, lazy-loading de imágenes y optimización de assets).</li>
+      </ul>
+    </section>
+
+    <!-- Implementación técnica (ejemplos) -->
+    <section class="case-section" id="technical">
+      <h2 data-i18n="case-tech-title">Implementación técnica (ejemplos)</h2>
+
+      <div class="code-sample">
+        <h4>Snippet: inserción de metadatos y schema básico (functions.php — child theme)</h4>
+        <pre><code>// functions.php (child theme) - añadir meta description programática
+function ma_meta_description() {
+  if (is_singular()) {
+    global $post;
+    $desc = wp_strip_all_tags( get_post_meta($post->ID, '_yoast_wpseo_metadesc', true) ?: wp_trim_words($post->post_content, 30) );
+    echo '&lt;meta name="description" content="'.esc_attr($desc).'" /&gt;';
+  }
+}
+add_action('wp_head','ma_meta_description', 1);
+</code></pre>
+      </div>
+
+      <div class="code-sample">
+        <h4>Snippet: lazy-loading eficiente para imágenes (HTML)</h4>
+        <pre><code>&lt;img src="imagen.jpg" loading="lazy" decoding="async" alt="Descripción breve"&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Resultados -->
+    <section class="case-section" id="results">
+      <h2 data-i18n="case-results-title">Resultados</h2>
+
+      <p>
+        <strong data-i18n="case-results-summary">Resumen cuantitativo:</strong>
+        <span data-i18n="case-results-detail">Aumento medible del tráfico orgánico y posicionamiento para keywords estratégicas (datos aportados por el autor del proyecto).</span>
+      </p>
+
+      <ul class="kpi-list">
+        <li><strong>Clicks orgánicos:</strong> de ~20/día a ~220/día en 6 meses (datos aportados por el autor).</li>
+        <li><strong>Top 3 SERP:</strong> varias keywords de intención transactional/consulta alcanzaron posiciones Top-3.</li>
+        <li><strong>Mejora técnica:</strong> reducción de errores indexación y optimización de LCP/CLS en las páginas clave.</li>
+      </ul>
+
+      <p class="muted small">Nota: las métricas específicas provienen del seguimiento interno del proyecto y han sido facilitadas por el autor.</p>
+    </section>
+
+    <!-- Imágenes / evidencias -->
+    <section class="case-section" id="evidence">
+      <h2 data-i18n="case-evidence-title">Evidencias y capturas</h2>
+      <div class="evidence-grid">
+        <figure>
+          <img src="../assets/cases/nomlogo-1.png" alt="Captura Google Search Console - tráfico" loading="lazy">
+          <figcaption data-i18n="case-evidence-1">Captura: evolución de clicks orgánicos (GSC).</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/cases/nomlogo-2.png" alt="Captura analytics - sesiones" loading="lazy">
+          <figcaption data-i18n="case-evidence-2">Captura: sesiones y comportamiento de usuarios.</figcaption>
+        </figure>
+      </div>
+      <p class="muted small">Si necesitas las capturas originales en alta resolución, solicítalas y te las envío.</p>
+    </section>
+
+    <!-- CTA final -->
+    <section class="case-section case-cta">
+      <h3 data-i18n="case-cta-title">¿Quieres un case similar para tu proyecto?</h3>
+      <p data-i18n="case-cta-p">Solicita una auditoría exprés de 30 minutos o un plan de contenidos personalizado.</p>
+      <div class="case-ctas">
+        <a class="btn primary" href="../seo-landing.html" data-i18n="case-cta-audit">Solicitar auditoría exprés</a>
+        <a class="btn outline" href="mailto:aguettimatias@gmail.com?subject=Auditoría%20exprés%20Nomlogo" data-i18n="case-cta-email">Enviar email</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="muted small center">© <span id="year-case"></span> Matías Aguetti</p>
+    </div>
+  </footer>
+
+  <!-- Generación de PDF (simple, con jsPDF) -->
+  <script>
+    document.getElementById('year-case').textContent = new Date().getFullYear();
+
+    document.getElementById('downloadCasePdf').addEventListener('click', async function(){
+      try {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF('p', 'pt', 'a4');
+        const margin = 40;
+        let y = 40;
+        // logo
+        try {
+          const r = await fetch('../assets/logo.png');
+          if (r.ok) {
+            const blob = await r.blob();
+            const reader = new FileReader();
+            reader.onload = function(){ 
+              doc.addImage(reader.result, 'PNG', margin, y, 90, 30);
+              y += 40;
+              doc.setFontSize(14);
+              doc.text('Case — Nomlogo: Estrategia de contenidos & SEO', margin, y);
+              y += 20;
+              doc.setFontSize(10);
+              doc.text('Resumen: Planificación editorial, optimización on-page y coordinación de contenidos.', margin, y);
+              y += 30;
+              doc.save('case-nomlogo.pdf');
+            };
+            reader.readAsDataURL(blob);
+            return;
+          }
+        } catch(e){
+          console.warn('No se pudo cargar logo para PDF', e);
+        }
+        // fallback text-only
+        doc.text('Case — Nomlogo: Estrategia de contenidos & SEO', margin, y);
+        y += 20;
+        doc.text('Resumen: Planificación editorial, optimización on-page y coordinación de contenidos.', margin, y);
+        doc.save('case-nomlogo.pdf');
+      } catch(err) {
+        alert('Error al generar PDF. Revisa la consola.');
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
