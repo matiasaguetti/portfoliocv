@@ -390,6 +390,13 @@
 'pf-villas-tech': 'Tech / tools: Divi (child theme), WPML, Hostaway API, custom JS for popups and booking engine.',
 'pf-villas-results': 'Results: +60% organic interactions in 6 months and +40% direct booking conversions to Hostaway.',
 
+/* Web English Center (EN) */
+'pf-webeng-title': 'Web English Center',
+'pf-webeng-role': 'Role: Web Designer',
+'pf-webeng-desc': 'Redesigned the site from an amateur look to a modern, SEO-optimized website. Built with Divi (WordPress), focused on online English courses, study materials and consultancy for Latin immigrants in the USA.',
+'pf-webeng-tech': 'Technologies / tools: Divi (WordPress), optimized global CSS, custom JS, controlled JS injections, WooCommerce and Mailchimp.',
+'pf-webeng-results': 'Results: Key pages optimized for Lighthouse (score 100 in key tests), checkout/cart improvements and reduced load times via asset optimization.',
+
 'pf-case': 'View case',
 'contact-title': 'Contact',
 'contact-sub': 'Ready to work? Contact me by WhatsApp or email.',
@@ -581,6 +588,13 @@
 'pf-villas-desc': 'Site de reservas para villas privadas em Cozumel; integração Hostaway via API, motor de reservas injetado e WPML para multilíngue.',
 'pf-villas-tech': 'Tecnologias / ferramentas: Divi (child theme), WPML, Hostaway API, JS personalizado para popups e motor de reservas.',
 'pf-villas-results': 'Resultados: +60% em interações orgânicas em 6 meses e +40% em conversões diretas para reservas em Hostaway.',
+
+      /* Web English Center (PT-BR) */
+'pf-webeng-title': 'Web English Center',
+'pf-webeng-role': 'Papel: Designer Web',
+'pf-webeng-desc': 'Redesenhei o site, transformando-o de um formato amador para um visual moderno e totalmente otimizado para SEO. Site construído com Divi (WordPress), voltado a cursos online, materiais de estudo e consultoria para imigrantes latinos nos EUA.',
+'pf-webeng-tech': 'Tecnologias / ferramentas: Divi (WordPress), CSS global otimizado, JS personalizado, injeções controladas de código, WooCommerce e Mailchimp.',
+'pf-webeng-results': 'Resultados: Páginas-chave otimizadas para Lighthouse (pontuação 100 em testes), melhorias no carrinho/checkout e redução dos tempos de carregamento via otimização de assets.',
 
 'pf-case': 'Ver case',
 'contact-title': 'Contato',
